@@ -1,65 +1,123 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import Hero from "@/components/Hero";
+import ServicesOverview from "@/components/ServicesOverview";
+import AboutPreview from "@/components/AboutPreview";
+import ReviewsSection from "@/components/ReviewsSection";
+import HomeGallery from "@/components/HomeGallery";
+import ContactFormCTA from "@/components/ContactFormCTA";
+
+export const metadata: Metadata = {
+  title: "Long's Land Management — Land Clearing, Forestry Mulching & Site Prep in Central Florida",
+  description:
+    "Long's Land Management provides professional land clearing, forestry mulching, horse arena construction, site prep & precision grading in Plant City, Lakeland, Bartow & Central FL. Free estimates. Call (813) 393-8359.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Long's Land Management — Trusted Land Clearing Pros in Central Florida",
+    description:
+      "Family-owned land clearing, forestry mulching, site prep, grading & horse arena construction serving Polk & Hillsborough counties. Free estimates.",
+    url: "/",
+    images: [{ url: "/og-images/home.png", width: 1200, height: 630, alt: "Long's Land Management equipment fleet" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og-images/home.png"],
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  name: "Long's Land Management",
+  url: "https://longslandmanagement.com",
+  description:
+    "Family-owned land clearing, forestry mulching, horse arena construction, site prep, and precision land grading serving Central Florida.",
+  telephone: "+18133938359",
+  image: "https://longslandmanagement.com/images/hero.jpg",
+  logo: "https://longslandmanagement.com/longlandlogo-1920w.webp",
+  founder: {
+    "@type": "Person",
+    name: "Konnore Long",
+  },
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Durant",
+    addressRegion: "FL",
+    postalCode: "33530",
+    addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: "27.8997",
+    longitude: "-82.1517",
+  },
+  serviceType: [
+    "Land Clearing",
+    "Forestry Mulching",
+    "Horse Arena Construction",
+    "Site Preparation",
+    "Precision Land Grading",
+  ],
+  areaServed: [
+    { "@type": "City", name: "Plant City", containedInPlace: { "@type": "State", name: "Florida" } },
+    { "@type": "City", name: "Lakeland", containedInPlace: { "@type": "State", name: "Florida" } },
+    { "@type": "City", name: "Bartow", containedInPlace: { "@type": "State", name: "Florida" } },
+    { "@type": "AdministrativeArea", name: "Polk County, FL" },
+    { "@type": "AdministrativeArea", name: "Hillsborough County, FL" },
+  ],
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "08:00",
+    closes: "18:00",
+  },
+  sameAs: [
+    "https://www.facebook.com/profile.php?id=61565693023903",
+    "https://www.instagram.com/longslandmanagement/",
+  ],
+  aggregateRating: {
+    "@type": "AggregateRating",
+    ratingValue: "5.0",
+    reviewCount: "100",
+    bestRating: "5",
+  },
+  review: [
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "Christina G." },
+      reviewRating: { "@type": "Rating", ratingValue: "5" },
+      reviewBody:
+        "Our neighbor used Long's for some recent work and highly recommended Konnore and his crew. They did outstanding job and went above and beyond!",
+    },
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "Jake K." },
+      reviewRating: { "@type": "Rating", ratingValue: "5" },
+      reviewBody:
+        "Long's cleared brush and did grading work on my property, and everything turned out exactly how I hoped. Very professional.",
+    },
+    {
+      "@type": "Review",
+      author: { "@type": "Person", name: "Brennan O." },
+      reviewRating: { "@type": "Rating", ratingValue: "5" },
+      reviewBody:
+        "Konnore built our arena earlier this year, the draining is phenomenal and the footing is extremely stable. Couldn't be happier.",
+    },
+  ],
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <Hero />
+      <ServicesOverview />
+      <AboutPreview />
+      <ReviewsSection />
+      <HomeGallery />
+      <ContactFormCTA />
     </div>
   );
 }
