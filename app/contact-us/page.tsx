@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Us — Long's Land Management",
+  title: "Contact Us",
   description:
     "Get a free estimate for land clearing, forestry mulching, site prep, grading, or horse arena construction in Central Florida. Call (813) 393-8359.",
   alternates: { canonical: "/contact-us" },

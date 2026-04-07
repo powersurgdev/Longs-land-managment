@@ -3,7 +3,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 import ContactCTA from "@/components/ContactCTA";
 
 export const metadata: Metadata = {
-  title: "FAQ — Long's Land Management",
+  title: "FAQ",
   description:
     "Frequently asked questions about land clearing, forestry mulching, site prep, grading, and horse arena construction in Central Florida.",
   alternates: { canonical: "/faq" },

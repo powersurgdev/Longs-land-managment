@@ -3,7 +3,7 @@ import ServiceAreasList from "@/components/ServiceAreasList";
 import ContactCTA from "@/components/ContactCTA";
 
 export const metadata: Metadata = {
-  title: "Service Areas — Long's Land Management",
+  title: "Service Areas",
   description:
     "We serve Polk County, Hillsborough County, and all of Central Florida. Land clearing, forestry mulching, site prep, grading, and horse arena construction.",
   alternates: { canonical: "/service-areas" },

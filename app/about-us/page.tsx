@@ -4,7 +4,7 @@ import { Users, ShieldCheck, DollarSign, MapPin, Wrench, Clock } from "lucide-re
 import ContactCTA from "@/components/ContactCTA";
 
 export const metadata: Metadata = {
-  title: "About Us — Long's Land Management",
+  title: "About Us",
   description:
     "Family-owned land management company founded by Konnore Long, serving Polk and Hillsborough counties in Central Florida.",
   alternates: { canonical: "/about-us" },

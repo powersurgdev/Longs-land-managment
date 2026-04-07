@@ -3,7 +3,7 @@ import GalleryGrid from "@/components/GalleryGrid";
 import ContactCTA from "@/components/ContactCTA";
 
 export const metadata: Metadata = {
-  title: "Gallery — Long's Land Management",
+  title: "Gallery",
   description:
     "See our land clearing, forestry mulching, site prep, and horse arena construction work across Central Florida.",
   alternates: { canonical: "/gallery" },

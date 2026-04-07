@@ -80,7 +80,7 @@ export default function CityServiceArea({ city }: CityServiceAreaProps) {
       {/* ===== HERO — mirrors homepage Hero ===== */}
       <section className="relative text-white min-h-[650px] lg:min-h-[750px] flex items-center">
         <Image
-          src="/images/hero.jpg"
+          src={city.heroImage}
           alt={`Land clearing equipment in ${city.name}, ${city.county}`}
           fill
           sizes="100vw"
@@ -227,7 +227,7 @@ export default function CityServiceArea({ city }: CityServiceAreaProps) {
       </section>
 
       {/* ===== REVIEWS — same as homepage ===== */}
-      <ReviewsSection />
+      <ReviewsSection variant="c" />
 
       {/* ===== NEARBY AREAS ===== */}
       {nearbyCities.length > 0 && (

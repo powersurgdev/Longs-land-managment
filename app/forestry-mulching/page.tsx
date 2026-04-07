@@ -1,15 +1,16 @@
 import type { Metadata } from "next";
 import ServicePageLayout from "@/components/ServicePageLayout";
+import type { ServiceFeature } from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
-  title: "Forestry Mulching — Long's Land Management",
+  title: "Forestry Mulching",
   description:
-    "Forestry mulching services in Plant City, Lakeland, Bartow, and Central Florida. One-step land clearing that grinds vegetation into mulch — no hauling, no burning.",
+    "Forestry mulching in Plant City, Lakeland, Bartow & Central FL. One-step clearing — no hauling, no burning. Free estimates — (813) 393-8359.",
   alternates: { canonical: "/forestry-mulching" },
   openGraph: {
     title: "Forestry Mulching — Long's Land Management",
     description:
-      "Forestry mulching services in Plant City, Lakeland, Bartow, and Central Florida.",
+      "Forestry mulching in Plant City, Lakeland, Bartow & Central FL. One-step clearing — no hauling, no burning. Free estimates — (813) 393-8359.",
     url: "/forestry-mulching",
     images: [{ url: "/og-images/forestry-mulching.png", width: 1200, height: 630 }],
   },
@@ -19,15 +20,47 @@ export const metadata: Metadata = {
   },
 };
 
-const features = [
-  "One-step land clearing",
-  "Right-of-way projects",
-  "Pipeline & power line clearing",
-  "Wildfire prevention & management",
-  "Invasive species control",
-  "Wildlife habitat restoration",
-  "Selective vegetation clearing",
-  "No hauling or burning required",
+const features: ServiceFeature[] = [
+  {
+    title: "One-Step Land Clearing",
+    description:
+      "Grind vegetation into nutrient-rich mulch in a single pass — no hauling, no burning.",
+  },
+  {
+    title: "Right-of-Way Projects",
+    description:
+      "Keep pipelines, power lines, and access roads clear with precision mulching.",
+  },
+  {
+    title: "Pipeline & Power Line Clearing",
+    description:
+      "Clear and maintain corridors for utility infrastructure without disturbing the ground.",
+  },
+  {
+    title: "Wildfire Prevention",
+    description:
+      "Reduce fuel loads and create defensible space around structures and property lines.",
+  },
+  {
+    title: "Invasive Species Control",
+    description:
+      "Target unwanted vegetation while preserving native growth and mature trees.",
+  },
+  {
+    title: "Wildlife Habitat Restoration",
+    description:
+      "Remove overgrowth to restore natural habitats and improve property ecology.",
+  },
+  {
+    title: "Selective Vegetation Clearing",
+    description:
+      "Clear specific areas while carefully preserving chosen trees and landscaping.",
+  },
+  {
+    title: "No Hauling or Burning",
+    description:
+      "Mulched material stays on-site, protecting soil and adding nutrients as it decomposes.",
+  },
 ];
 
 const relatedServices = [
@@ -37,66 +70,117 @@ const relatedServices = [
   { name: "Horse Arena Construction", href: "/horse-arena-construction" },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Forestry Mulching",
+      description:
+        "One-step land clearing that grinds trees, brush, and vegetation into nutrient-rich mulch. No hauling, no burning. Selective clearing available.",
+      provider: {
+        "@type": "HomeAndConstructionBusiness",
+        name: "Long's Land Management",
+        telephone: "+18133938359",
+        url: "https://longslandmanagement.com",
+      },
+      areaServed: [
+        { "@type": "City", name: "Plant City" },
+        { "@type": "City", name: "Lakeland" },
+        { "@type": "City", name: "Bartow" },
+        { "@type": "City", name: "Tampa" },
+        { "@type": "AdministrativeArea", name: "Polk County, FL" },
+        { "@type": "AdministrativeArea", name: "Hillsborough County, FL" },
+      ],
+      serviceType: "Forestry Mulching",
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://longslandmanagement.com" },
+        { "@type": "ListItem", position: 2, name: "Forestry Mulching", item: "https://longslandmanagement.com/forestry-mulching" },
+      ],
+    },
+  ],
+};
+
 export default function ForestryMulchingPage() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     <ServicePageLayout
       title="Forestry Mulching"
       description="We operate a variety of mulchers and brushcutters that cut, grind, and clear vegetation quickly and completely — leaving nutrient-rich material on the ground with minimal disturbance."
       features={features}
       relatedServices={relatedServices}
       heroImage="/images/forestry-mulching.jpg"
+      heroAlt="Forestry mulching machinery clearing brush in Central Florida"
     >
-      <div className="space-y-6">
-        <div>
-          <h2 className="text-2xl font-bold mb-4">
-            What Is Forestry Mulching?
-          </h2>
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            Forestry mulching is a one-step land clearing method that uses
-            heavy machinery to grind trees, brush, and vegetation into mulch.
-            The mulch stays on the ground, adding nutrients back to the soil
-            and helping prevent erosion. No burning, no hauling debris off-site.
-          </p>
-          <p className="text-muted-foreground leading-relaxed">
-            It&apos;s often faster and more cost-effective than traditional
-            clearing methods, and it&apos;s better for the environment. We can
-            also selectively clear — removing unwanted brush while preserving
-            mature trees and desirable growth.
-          </p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="space-y-6">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+              What Is Forestry Mulching?
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Forestry mulching is a one-step land clearing method that uses
+              heavy machinery to grind trees, brush, and vegetation into mulch.
+              The mulch stays on the ground, adding nutrients back to the soil
+              and helping prevent erosion. No burning, no hauling debris off-site.
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              It&apos;s often faster and more cost-effective than traditional
+              clearing methods, and it&apos;s better for the environment. We can
+              also selectively clear — removing unwanted brush while preserving
+              mature trees and desirable growth.
+            </p>
+          </div>
+
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+              Applications
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              Forestry mulching works well for a wide range of projects across
+              Central Florida:
+            </p>
+            <ul className="space-y-2 text-muted-foreground">
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">&#8226;</span>
+                <span><strong>Land development</strong> — clear lots for construction without hauling costs</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">&#8226;</span>
+                <span><strong>Right-of-way maintenance</strong> — keep pipelines, power lines, and access roads clear</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">&#8226;</span>
+                <span><strong>Fire prevention</strong> — reduce fuel loads and create defensible space</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">&#8226;</span>
+                <span><strong>Invasive species removal</strong> — target unwanted vegetation while protecting native growth</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">&#8226;</span>
+                <span><strong>Wildlife restoration</strong> — restore natural habitats by removing overgrowth</span>
+              </li>
+            </ul>
+          </div>
         </div>
 
-        <div>
-          <h2 className="text-2xl font-bold mb-4">
-            Applications
-          </h2>
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            Forestry mulching works well for a wide range of projects across
-            Central Florida:
-          </p>
-          <ul className="space-y-2 text-muted-foreground">
-            <li className="flex items-start gap-2">
-              <span className="text-primary font-bold">&#8226;</span>
-              <span><strong>Land development</strong> — clear lots for construction without hauling costs</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary font-bold">&#8226;</span>
-              <span><strong>Right-of-way maintenance</strong> — keep pipelines, power lines, and access roads clear</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary font-bold">&#8226;</span>
-              <span><strong>Fire prevention</strong> — reduce fuel loads and create defensible space</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary font-bold">&#8226;</span>
-              <span><strong>Invasive species removal</strong> — target unwanted vegetation while protecting native growth</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-primary font-bold">&#8226;</span>
-              <span><strong>Wildlife restoration</strong> — restore natural habitats by removing overgrowth</span>
-            </li>
-          </ul>
+        <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
+          <img
+            src="/images/mulching-path-pine-forest.jpg"
+            alt="Forestry mulching path cleared through pine forest in Central Florida"
+            className="object-cover w-full h-full"
+          />
         </div>
       </div>
     </ServicePageLayout>
+    </>
   );
 }

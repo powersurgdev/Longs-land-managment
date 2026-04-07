@@ -8,6 +8,7 @@ export interface CityData {
   heroSubtext: string;
   metaTitle: string;
   metaDescription: string;
+  heroImage: string;
 }
 
 export const cities: CityData[] = [
@@ -24,6 +25,7 @@ export const cities: CityData[] = [
     metaTitle: "Land Clearing & Forestry Mulching in Plant City, FL",
     metaDescription:
       "Professional land clearing, forestry mulching, site prep & grading in Plant City, FL. Fully insured, family-owned. Free estimates — call (813) 393-8359.",
+    heroImage: "/images/hero.jpg",
   },
   {
     slug: "lakeland",
@@ -38,6 +40,7 @@ export const cities: CityData[] = [
     metaTitle: "Land Clearing & Site Prep in Lakeland, FL",
     metaDescription:
       "Land clearing, forestry mulching, site prep & grading in Lakeland, FL. Serving Polk County. Family-owned, fully insured. Free estimates — call (813) 393-8359.",
+    heroImage: "/images/bulldozer-pond-grading.jpg",
   },
   {
     slug: "bartow",
@@ -52,6 +55,7 @@ export const cities: CityData[] = [
     metaTitle: "Land Clearing & Forestry Mulching in Bartow, FL",
     metaDescription:
       "Land clearing, forestry mulching, site prep & grading in Bartow, FL. Polk County's trusted land crew. Fully insured. Free estimates — call (813) 393-8359.",
+    heroImage: "/images/hero.jpg",
   },
   {
     slug: "winter-haven",
@@ -66,6 +70,7 @@ export const cities: CityData[] = [
     metaTitle: "Land Clearing & Site Prep in Winter Haven, FL",
     metaDescription:
       "Land clearing, forestry mulching, site prep & grading in Winter Haven, FL. Serving Polk County homeowners & developers. Free estimates — call (813) 393-8359.",
+    heroImage: "/images/excavator-pond-job.jpg",
   },
   {
     slug: "auburndale",
@@ -80,6 +85,7 @@ export const cities: CityData[] = [
     metaTitle: "Land Clearing & Forestry Mulching in Auburndale, FL",
     metaDescription:
       "Land clearing, forestry mulching, site prep & grading in Auburndale, FL. Serving the I-4 corridor in Polk County. Free estimates — call (813) 393-8359.",
+    heroImage: "/images/land-clearing-hero.jpg",
   },
   {
     slug: "haines-city",
@@ -94,6 +100,7 @@ export const cities: CityData[] = [
     metaTitle: "Land Clearing & Forestry Mulching in Haines City, FL",
     metaDescription:
       "Land clearing, forestry mulching, site prep & grading in Haines City, FL. Serving south Polk County. Fully insured. Free estimates — call (813) 393-8359.",
+    heroImage: "/images/site-prep-hero.jpg",
   },
   {
     slug: "davenport",
@@ -108,6 +115,7 @@ export const cities: CityData[] = [
     metaTitle: "Land Clearing & Site Prep in Davenport, FL",
     metaDescription:
       "Land clearing, forestry mulching, site prep & grading in Davenport, FL. Serving the I-4 corridor near Osceola County. Free estimates — call (813) 393-8359.",
+    heroImage: "/images/hero.jpg",
   },
   {
     slug: "tampa",
@@ -122,6 +130,7 @@ export const cities: CityData[] = [
     metaTitle: "Land Clearing & Forestry Mulching in Tampa, FL",
     metaDescription:
       "Professional land clearing, forestry mulching, site prep & grading in Tampa, FL. Serving Hillsborough County. Free estimates — call (813) 393-8359.",
+    heroImage: "/images/bulldozer-pond-grading.jpg",
   },
   {
     slug: "brandon",
@@ -136,6 +145,7 @@ export const cities: CityData[] = [
     metaTitle: "Land Clearing & Site Prep in Brandon, FL",
     metaDescription:
       "Land clearing, forestry mulching, site prep & grading in Brandon, FL. Serving eastern Hillsborough County. Free estimates — call (813) 393-8359.",
+    heroImage: "/images/land-clearing-hero.jpg",
   },
   {
     slug: "riverview",
@@ -150,6 +160,7 @@ export const cities: CityData[] = [
     metaTitle: "Land Clearing & Forestry Mulching in Riverview, FL",
     metaDescription:
       "Land clearing, forestry mulching, site prep & grading in Riverview, FL. South Hillsborough County. Fully insured. Free estimates — call (813) 393-8359.",
+    heroImage: "/images/excavator-pond-job.jpg",
   },
 ];
 

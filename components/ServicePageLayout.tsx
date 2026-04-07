@@ -1,165 +1,226 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, Phone, CheckCircle } from "lucide-react";
+import { Phone, Shield, CheckCircle, MapPin, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import ContactCTA from "@/components/ContactCTA";
+import ReviewsSection from "@/components/ReviewsSection";
+import ContactFormCTA from "@/components/ContactFormCTA";
+import { cities } from "@/lib/cities";
+
+export interface ServiceFeature {
+  title: string;
+  description: string;
+}
 
 interface ServicePageLayoutProps {
   title: string;
   description: string;
-  features: string[];
+  heroImage?: string;
+  heroAlt?: string;
+  features: ServiceFeature[];
   children?: React.ReactNode;
   relatedServices: Array<{ name: string; href: string }>;
-  heroImage?: string;
 }
 
 export default function ServicePageLayout({
   title,
   description,
+  heroImage,
+  heroAlt,
   features,
   children,
   relatedServices,
-  heroImage,
 }: ServicePageLayoutProps) {
   return (
     <div className="min-h-screen">
-      {/* Hero banner */}
-      <section className="relative text-white pt-32 sm:pt-40 pb-16 sm:pb-20">
+      {/* ===== HERO ===== */}
+      <section className="relative text-white min-h-[550px] lg:min-h-[600px] flex items-center">
         {heroImage ? (
           <>
             <Image
               src={heroImage}
-              alt={title}
+              alt={heroAlt || title}
               fill
+              sizes="100vw"
               className="object-cover"
               priority
-              quality={80}
+              quality={85}
             />
-            <div className="absolute inset-0 bg-black/65" />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/65 to-black/40" />
           </>
         ) : (
           <div className="absolute inset-0 bg-[oklch(0.12_0_0)]" />
         )}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            {title}
-          </h1>
-          <p className="text-lg sm:text-xl text-white/70 max-w-3xl">
-            {description}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 mt-8">
-            <Button
-              render={<Link href="/contact-us" />}
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold"
-            >
-              Get a Free Estimate
-            </Button>
-            <Button
-              render={<a href="tel:+18133938359" />}
-              size="lg"
-              variant="outline"
-              className="border-white/20 text-white hover:bg-white/10"
-            >
-              <Phone className="h-5 w-5 mr-2" />
-              (813) 393-8359
-            </Button>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-32 sm:pt-40 pb-16 sm:pb-20">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-1.5 mb-6">
+              <Shield className="h-4 w-4 text-primary" />
+              <span className="text-sm font-medium">
+                Fully Licensed &amp; Insured
+              </span>
+            </div>
+
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
+              {title}
+            </h1>
+            <p className="text-lg sm:text-xl text-white/80 mb-8 leading-relaxed">
+              {description}
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button
+                render={<Link href="/contact-us" />}
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold"
+              >
+                Get a Free Estimate
+              </Button>
+              <Button
+                render={<a href="tel:+18133938359" />}
+                size="lg"
+                className="bg-white/10 border border-white/20 text-white hover:bg-white/20 font-semibold"
+              >
+                <Phone className="h-5 w-5 mr-2" />
+                (813) 393-8359
+              </Button>
+            </div>
+
+            <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-x-6 gap-y-3 mt-8 text-sm text-white/70">
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-4 w-4 text-primary" />
+                Fully Insured
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-4 w-4 text-primary" />
+                Free Estimates
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-4 w-4 text-primary" />
+                Family-Owned
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle className="h-4 w-4 text-primary" />
+                Competitive Pricing
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Main content */}
-      <section className="py-16 sm:py-20">
+      {/* ===== WHAT WE OFFER (clean, no borders) ===== */}
+      <section className="py-14 sm:py-16 bg-muted/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-            {/* Content area */}
-            <div className="lg:col-span-2 space-y-8">
-              {/* Features list */}
-              <div>
-                <h2 className="text-2xl font-bold mb-6">What We Offer</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  {features.map((feature) => (
-                    <div key={feature} className="flex items-start gap-3">
-                      <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">{feature}</span>
-                    </div>
-                  ))}
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
+            What We Offer
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-5">
+            {features.map((feature) => (
+              <div key={feature.title} className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold text-sm">{feature.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed mt-0.5">
+                    {feature.description}
+                  </p>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-              {/* Additional content passed as children */}
-              {children}
+      {/* ===== CUSTOM CONTENT (unique per page) ===== */}
+      {children && (
+        <section className="py-14 sm:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {children}
+          </div>
+        </section>
+      )}
+
+      {/* ===== SERVICE AREAS + RELATED SERVICES (dark bg) ===== */}
+      <section className="py-14 sm:py-20 bg-[oklch(0.12_0_0)] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+            {/* Service areas */}
+            <div className="lg:col-span-3">
+              <h2 className="text-xl sm:text-2xl font-bold mb-2">
+                {title} Across Central Florida
+              </h2>
+              <p className="text-white/60 text-sm mb-6">
+                Serving Polk and Hillsborough counties.
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {cities.map((city) => (
+                  <Link
+                    key={city.slug}
+                    href={`/service-areas/${city.slug}`}
+                    className="flex items-center gap-2 px-3 py-2.5 rounded-md bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/50 transition-colors text-sm text-white/80 hover:text-primary"
+                  >
+                    <MapPin className="h-3.5 w-3.5 flex-shrink-0" />
+                    {city.name}
+                  </Link>
+                ))}
+              </div>
+              <Link
+                href="/service-areas"
+                className="inline-flex items-center gap-1 text-sm text-primary hover:text-primary/80 transition-colors mt-4"
+              >
+                View All Service Areas
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
 
-            {/* Sidebar */}
-            <div className="space-y-6">
-              {/* Quick contact card */}
-              <Card className="border-primary/20">
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-lg mb-3">
-                    Free Estimates
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Call us today or fill out our contact form. We&apos;ll visit your
-                    property and give you an honest quote.
-                  </p>
-                  <div className="space-y-3">
-                    <Button
-                      render={<Link href="/contact-us" />}
-                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-semibold"
-                    >
-                      Request a Quote
-                    </Button>
-                    <Button render={<a href="tel:+18133938359" />} variant="outline" className="w-full">
-                      <Phone className="h-4 w-4 mr-2" />
-                      (813) 393-8359
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
-
-              {/* Related services */}
-              <Card>
-                <CardContent className="p-6">
-                  <h3 className="font-semibold text-lg mb-3">
-                    Other Services
-                  </h3>
-                  <ul className="space-y-2">
-                    {relatedServices.map((service) => (
-                      <li key={service.href}>
-                        <Link
-                          href={service.href}
-                          className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors py-1"
-                        >
-                          <ArrowRight className="h-4 w-4" />
-                          {service.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
-
-              {/* Trust indicators */}
-              <Card className="bg-muted">
-                <CardContent className="p-6 space-y-3">
-                  <h3 className="font-semibold text-lg">Why Long&apos;s?</h3>
-                  <ul className="space-y-2 text-sm text-muted-foreground">
-                    <li>&#10003; Family-owned &amp; operated</li>
-                    <li>&#10003; Fully insured</li>
-                    <li>&#10003; Competitive pricing</li>
-                    <li>&#10003; Free on-site estimates</li>
-                    <li>&#10003; Local Central Florida expertise</li>
-                  </ul>
-                </CardContent>
-              </Card>
+            {/* Related services */}
+            <div className="lg:col-span-2">
+              <h2 className="text-xl sm:text-2xl font-bold mb-2">
+                Other Services
+              </h2>
+              <p className="text-white/60 text-sm mb-6">
+                Full-service land management.
+              </p>
+              <div className="space-y-2">
+                {relatedServices.map((service) => (
+                  <Link
+                    key={service.href}
+                    href={service.href}
+                    className="flex items-center justify-between px-4 py-3 rounded-md bg-white/5 hover:bg-white/10 border border-white/10 hover:border-primary/50 transition-colors text-sm text-white/80 hover:text-primary"
+                  >
+                    {service.name}
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <ContactCTA />
+      {/* ===== IMAGE STRIP ===== */}
+      <div className="grid grid-cols-2 lg:grid-cols-4">
+        {[
+          { src: "/images/bulldozer-pond-grading.jpg", alt: "Bulldozer grading beside a pond with Spanish moss oaks in Central Florida" },
+          { src: "/images/skid-steer-residential-clearing.jpg", alt: "Skid steer clearing a residential wooded lot" },
+          { src: "/images/selective-clearing-oaks.jpg", alt: "Selectively cleared land preserving mature oak trees" },
+          { src: "/images/excavator-pond-job.jpg", alt: "Excavator and equipment working on a pond project" },
+        ].map((img) => (
+          <div key={img.src} className="relative aspect-[3/2] overflow-hidden group">
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              sizes="(max-width: 1024px) 50vw, 25vw"
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* ===== REVIEWS ===== */}
+      <ReviewsSection variant="b" />
+
+      {/* ===== CONTACT FORM CTA ===== */}
+      <ContactFormCTA />
     </div>
   );
 }
