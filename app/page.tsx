@@ -33,7 +33,7 @@ const jsonLd = {
     "Family-owned land clearing, forestry mulching, horse arena construction, site prep, and precision land grading serving Central Florida.",
   telephone: "+18133938359",
   image: "https://longslandmanagement.com/images/hero.jpg",
-  logo: "https://longslandmanagement.com/longlandlogo-1920w.webp",
+  logo: "https://longslandmanagement.com/logo.png",
   founder: {
     "@type": "Person",
     name: "Konnore Long",

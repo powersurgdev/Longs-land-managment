@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     "Long's Land Management provides professional land clearing, forestry mulching, horse arena construction, site prep & precision grading in Plant City, Lakeland, Bartow & Central FL.",
   metadataBase: new URL("https://longslandmanagement.com"),
   robots: { index: true, follow: true },
-  icons: { icon: "/favicon.png" },
+  icons: { icon: "/favicon.ico" },
   openGraph: {
     type: "website",
     siteName: "Long's Land Management",

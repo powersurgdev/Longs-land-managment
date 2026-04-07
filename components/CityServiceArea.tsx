@@ -1,9 +1,19 @@
 import Link from "next/link";
-import { Phone, CheckCircle, ArrowRight, MapPin } from "lucide-react";
+import Image from "next/image";
+import { Phone, ShieldCheck, Clock, Zap, Building2, ArrowRight, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import type { CityData } from "@/lib/cities";
 import { cities } from "@/lib/cities";
+import ReviewsSection from "@/components/ReviewsSection";
+import ContactFormCTA from "@/components/ContactFormCTA";
+
+const trustItems = [
+  { icon: ShieldCheck, label: "Fully Insured" },
+  { icon: Building2, label: "Residential & Commercial" },
+  { icon: Clock, label: "Free Estimates" },
+  { icon: Zap, label: "Fast Turnaround" },
+];
 
 const services = [
   {
@@ -11,30 +21,45 @@ const services = [
     href: "/land-clearing",
     description:
       "Complete lot clearing, underbrush removal, and heavy-duty bush hogging for residential and commercial properties.",
+    image: "/images/land-clearing.jpg",
+    imagePosition: "center 45%",
+    alt: "Excavator and skid steer clearing land on a Central Florida job site",
   },
   {
     title: "Forestry Mulching",
     href: "/forestry-mulching",
     description:
       "One-step land clearing that grinds vegetation into nutrient-rich mulch. No hauling, no burning.",
+    image: "/images/forestry-mulching.jpg",
+    imagePosition: "center 60%",
+    alt: "Forestry mulcher clearing brush in a Florida pine forest",
   },
   {
     title: "Horse Arena Construction",
     href: "/horse-arena-construction",
     description:
       "Custom arena builds from planning to finish — base prep, grading, drainage, and fencing.",
+    image: "/images/horse-arena.jpg",
+    imagePosition: "center 40%",
+    alt: "Horse arena being graded with laser equipment in Central Florida",
   },
   {
     title: "Site Prep",
     href: "/site-prep",
     description:
       "Dirt work, gravel driveways, excavation, and drainage. We get your site ready to build on.",
+    image: "/images/site-prep.jpg",
+    imagePosition: "center 35%",
+    alt: "Site preparation with fill dirt being moved on a residential property",
   },
   {
     title: "Precision Land Grading",
     href: "/precision-land-grading",
     description:
       "Laser-guided grading for proper drainage, level foundations, and long-term stability.",
+    image: "/images/land-grading.jpg",
+    imagePosition: "center 35%",
+    alt: "Bulldozer and skid steer performing precision land grading",
   },
 ];
 
@@ -47,132 +72,174 @@ export default function CityServiceArea({ city }: CityServiceAreaProps) {
     .map((slug) => cities.find((c) => c.slug === slug))
     .filter(Boolean);
 
+  const topServices = services.slice(0, 3);
+  const bottomServices = services.slice(3);
+
   return (
     <div className="min-h-screen">
-      {/* Hero */}
-      <section className="bg-[oklch(0.12_0_0)] text-white pt-32 sm:pt-40 pb-16 sm:pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-primary font-semibold text-sm uppercase tracking-wider mb-4">
-            {city.county} &bull; Central Florida
-          </p>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            Land Management in {city.name}, FL
-          </h1>
-          <p className="text-lg sm:text-xl text-white/70 max-w-3xl">
-            {city.description}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 mt-8">
-            <Button
-              render={<Link href="/contact-us" />}
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold"
-            >
-              Get a Free Estimate in {city.name}
-            </Button>
-            <Button
-              render={<a href="tel:+18133938359" />}
-              size="lg"
-              variant="outline"
-              className="border-white/20 text-white hover:bg-white/10"
-            >
-              <Phone className="h-5 w-5 mr-2" />
-              (813) 393-8359
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* ===== HERO — mirrors homepage Hero ===== */}
+      <section className="relative text-white min-h-[650px] lg:min-h-[750px] flex items-center">
+        <Image
+          src="/images/hero.jpg"
+          alt={`Land clearing equipment in ${city.name}, ${city.county}`}
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+          quality={85}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/65 to-black/40" />
 
-      {/* Services in this city */}
-      <section className="py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-3">
-            Our Services in {city.name}
-          </h2>
-          <p className="text-muted-foreground mb-8 max-w-3xl">
-            We bring the same quality equipment and expertise to every job in{" "}
-            {city.name}. Here&apos;s what we can do for you.
-          </p>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-32 sm:pt-40 pb-16 sm:pb-20">
+          <div className="max-w-2xl">
+            {/* Trust badge */}
+            <div className="inline-flex items-center gap-2 rounded-full bg-primary/15 border border-primary/30 px-4 py-1.5 mb-6">
+              <ShieldCheck className="h-4 w-4 text-primary" />
+              <span className="text-sm font-medium text-primary">
+                Fully Licensed &amp; Insured in {city.name}
+              </span>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {services.map((service) => (
-              <Card
-                key={service.href}
-                className="transition-all duration-200 hover:shadow-md"
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.1] mb-6">
+              {city.heroHeadline.replace("Land Clearing Pros", "")}
+              <span className="text-primary">Land Clearing Pros</span>
+            </h1>
+
+            <p className="text-lg sm:text-xl text-white/70 leading-relaxed mb-8 max-w-xl">
+              {city.heroSubtext}
+            </p>
+
+            {/* CTAs */}
+            <div className="flex flex-col sm:flex-row gap-4 mb-8">
+              <Button
+                render={<Link href="/contact-us" />}
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold text-base px-8 h-12"
               >
-                <CardContent className="p-6">
-                  <div className="flex items-start gap-3 mb-3">
-                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <h3 className="font-semibold text-lg">{service.title}</h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed mb-4 pl-8">
-                    {service.description}
-                  </p>
-                  <Link
-                    href={service.href}
-                    className="inline-flex items-center text-sm font-medium text-primary pl-8 hover:underline"
-                  >
-                    Learn more
-                    <ArrowRight className="h-4 w-4 ml-1" />
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
+                Get a Free Estimate in {city.name}
+              </Button>
+              <Button
+                render={<a href="tel:+18133938359" />}
+                size="lg"
+                className="bg-white/10 border-white/20 text-white hover:bg-white/20 font-semibold text-base px-8 h-12"
+              >
+                <Phone className="h-5 w-5 mr-2" />
+                Call (813) 393-8359
+              </Button>
+            </div>
 
-      {/* Why choose us for this area */}
-      <section className="py-16 sm:py-20 bg-muted/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold mb-6">
-            Why {city.name} Property Owners Choose Us
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "Local to Central Florida",
-                desc: `We're based right here in the area and know ${city.county} terrain, soil conditions, and local permitting inside and out.`,
-              },
-              {
-                title: "Family-Owned & Insured",
-                desc: "You work directly with us — not a sales team. And every job is fully insured for your peace of mind.",
-              },
-              {
-                title: "Competitive Pricing",
-                desc: "Low overhead means lower costs for you. We deliver quality work at prices that make sense.",
-              },
-              {
-                title: "Free Estimates",
-                desc: `We'll visit your ${city.name} property, assess the work, and give you an honest quote — no obligation.`,
-              },
-              {
-                title: "Fast Turnaround",
-                desc: "Most jobs are done in one to three days. We move fast without cutting corners.",
-              },
-              {
-                title: "One Contractor, Start to Finish",
-                desc: "From clearing to grading to final prep, we handle it all. No need to coordinate multiple crews.",
-              },
-            ].map((item) => (
-              <div key={item.title} className="flex items-start gap-3">
-                <CheckCircle className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                <div>
-                  <h3 className="font-semibold mb-1">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+            {/* Trust indicators */}
+            <div className="grid grid-cols-2 sm:flex sm:flex-row gap-3 sm:gap-6">
+              {trustItems.map((item) => (
+                <div
+                  key={item.label}
+                  className="flex items-center gap-2 text-white/50"
+                >
+                  <item.icon className="h-4 w-4 text-primary/70 flex-shrink-0" />
+                  <span className="text-sm">{item.label}</span>
                 </div>
-              </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== SERVICES — mirrors homepage ServicesOverview ===== */}
+      <section className="py-16 sm:py-20 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
+              Our Land Management Services in {city.name}
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Professional land clearing, forestry mulching, site prep, grading,
+              and horse arena construction for {city.name} and {city.county}{" "}
+              property owners.
+            </p>
+          </div>
+
+          {/* Top row: 3 cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+            {topServices.map((service) => (
+              <Link key={service.href} href={service.href} className="group">
+                <Card className="h-full overflow-hidden transition-all duration-200 hover:shadow-lg hover:-translate-y-1 border-border/50">
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.alt}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      style={{ objectPosition: service.imagePosition }}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+                  </div>
+                  <CardContent className="p-5">
+                    <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
+                      {service.title} in {city.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                      {service.description}
+                    </p>
+                    <span className="inline-flex items-center text-sm font-medium text-primary">
+                      Learn More
+                      <ArrowRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+
+          {/* Bottom row: 2 cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {bottomServices.map((service) => (
+              <Link key={service.href} href={service.href} className="group">
+                <Card className="h-full overflow-hidden transition-all duration-200 hover:shadow-lg hover:-translate-y-1 border-border/50">
+                  <div className="relative aspect-[16/10] overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.alt}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      style={{ objectPosition: service.imagePosition }}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
+                  </div>
+                  <CardContent className="p-5">
+                    <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors">
+                      {service.title} in {city.name}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-3">
+                      {service.description}
+                    </p>
+                    <span className="inline-flex items-center text-sm font-medium text-primary">
+                      Learn More
+                      <ArrowRight className="h-4 w-4 ml-1 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Nearby areas */}
+      {/* ===== REVIEWS — same as homepage ===== */}
+      <ReviewsSection />
+
+      {/* ===== NEARBY AREAS ===== */}
       {nearbyCities.length > 0 && (
-        <section className="py-16 sm:py-20">
+        <section className="py-16 sm:py-20 bg-muted/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold mb-6">
-              We Also Serve Nearby Areas
+            <h2 className="text-2xl sm:text-3xl font-bold mb-3">
+              We Also Serve Areas Near {city.name}
             </h2>
+            <p className="text-muted-foreground mb-8">
+              Looking for land management services outside {city.name}? We cover
+              all of {city.county} and Central Florida.
+            </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               {nearbyCities.map((nearby) => (
                 <Link
@@ -200,36 +267,8 @@ export default function CityServiceArea({ city }: CityServiceAreaProps) {
         </section>
       )}
 
-      {/* CTA */}
-      <section className="bg-primary py-16 sm:py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-4">
-            Ready to Get Started in {city.name}?
-          </h2>
-          <p className="text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-            Give us a call or request a free estimate. We&apos;ll visit your
-            property, discuss your goals, and get the job done right.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              render={<Link href="/contact-us" />}
-              size="lg"
-              className="bg-black text-white hover:bg-black/80 font-semibold text-base px-8"
-            >
-              Get a Free Estimate
-            </Button>
-            <Button
-              render={<a href="tel:+18133938359" />}
-              size="lg"
-              variant="outline"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-semibold text-base px-8"
-            >
-              <Phone className="h-5 w-5 mr-2" />
-              (813) 393-8359
-            </Button>
-          </div>
-        </div>
-      </section>
+      {/* ===== CONTACT FORM CTA — same as homepage ===== */}
+      <ContactFormCTA />
     </div>
   );
 }

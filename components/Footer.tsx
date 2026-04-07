@@ -42,11 +42,11 @@ export default function Footer() {
           {/* Company info */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Image
-              src="/longlandlogo-1920w.webp"
-              alt="Long's Land Management"
-              width={180}
-              height={50}
-              className="h-10 w-auto mb-4"
+              src="/logo.png"
+              alt="Long's Land Management logo"
+              width={200}
+              height={132}
+              className="h-16 w-auto mb-4"
             />
             <p className="text-sm leading-relaxed mb-4">
               Family-owned land management company serving Polk and Hillsborough

@@ -79,15 +79,15 @@ export default function Header() {
       )}
     >
       <nav aria-label="Main navigation" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-18 lg:h-20">
+        <div className="flex items-center justify-between h-20 lg:h-22">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0" aria-label="Long's Land Management home">
             <Image
-              src="/longlandlogo-1920w.webp"
+              src="/logo.png"
               alt="Long's Land Management"
-              width={180}
-              height={50}
-              className="h-10 lg:h-12 w-auto"
+              width={240}
+              height={160}
+              className="h-14 lg:h-16 w-auto"
               priority
             />
           </Link>
