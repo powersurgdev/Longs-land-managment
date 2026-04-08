@@ -21,9 +21,9 @@ function InstagramIcon({ className }: { className?: string }) {
 const serviceLinks = [
   { name: "Land Clearing", href: "/land-clearing" },
   { name: "Forestry Mulching", href: "/forestry-mulching" },
-  { name: "Horse Arena Construction", href: "/horse-arena-construction" },
   { name: "Site Prep", href: "/site-prep" },
   { name: "Precision Land Grading", href: "/precision-land-grading" },
+  { name: "Horse Arena Construction", href: "/horse-arena-construction" },
 ];
 
 const quickLinks = [
@@ -123,7 +123,7 @@ export default function Footer() {
               </li>
               <li className="flex items-start gap-2.5 text-sm">
                 <MapPin className="h-4 w-4 mt-0.5 flex-shrink-0" />
-                Durant, FL 33530
+                Plant City, FL 33567
               </li>
               <li className="flex items-start gap-2.5 text-sm">
                 <Clock className="h-4 w-4 mt-0.5 flex-shrink-0" />

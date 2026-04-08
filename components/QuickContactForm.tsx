@@ -84,9 +84,9 @@ export default function QuickContactForm() {
           <option value="">Select a service</option>
           <option value="Land Clearing">Land Clearing</option>
           <option value="Forestry Mulching">Forestry Mulching</option>
-          <option value="Horse Arena Construction">Horse Arena Construction</option>
           <option value="Site Prep">Site Prep</option>
           <option value="Precision Land Grading">Precision Land Grading</option>
+          <option value="Horse Arena Construction">Horse Arena Construction</option>
           <option value="Other">Other</option>
         </select>
       </div>

@@ -48,7 +48,7 @@ export async function generateMetadata({
 function buildJsonLd(city: NonNullable<ReturnType<typeof getCityBySlug>>) {
   return {
     "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
+    "@type": "LocalBusiness",
     name: "Long's Land Management",
     url: `https://longslandmanagement.com/service-areas/${city.slug}`,
     description: city.metaDescription,
@@ -56,9 +56,9 @@ function buildJsonLd(city: NonNullable<ReturnType<typeof getCityBySlug>>) {
     image: "https://longslandmanagement.com/images/hero.jpg",
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Durant",
+      addressLocality: "Plant City",
       addressRegion: "FL",
-      postalCode: "33530",
+      postalCode: "33567",
       addressCountry: "US",
     },
     areaServed: {
@@ -72,9 +72,9 @@ function buildJsonLd(city: NonNullable<ReturnType<typeof getCityBySlug>>) {
     serviceType: [
       "Land Clearing",
       "Forestry Mulching",
-      "Horse Arena Construction",
       "Site Preparation",
       "Precision Land Grading",
+      "Horse Arena Construction",
     ],
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",

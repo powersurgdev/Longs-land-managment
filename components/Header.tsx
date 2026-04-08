@@ -10,9 +10,9 @@ import { cn } from "@/lib/utils";
 const serviceLinks = [
   { name: "Land Clearing", href: "/land-clearing" },
   { name: "Forestry Mulching", href: "/forestry-mulching" },
-  { name: "Horse Arena Construction", href: "/horse-arena-construction" },
   { name: "Site Prep", href: "/site-prep" },
   { name: "Precision Land Grading", href: "/precision-land-grading" },
+  { name: "Horse Arena Construction", href: "/horse-arena-construction" },
 ];
 
 const areaLinks = [
@@ -21,7 +21,7 @@ const areaLinks = [
   { name: "Bartow", href: "/service-areas/bartow" },
   { name: "Winter Haven", href: "/service-areas/winter-haven" },
   { name: "Tampa", href: "/service-areas/tampa" },
-  { name: "Brandon", href: "/service-areas/brandon" },
+  { name: "Lutz", href: "/service-areas/lutz" },
   { name: "Riverview", href: "/service-areas/riverview" },
   { name: "Auburndale", href: "/service-areas/auburndale" },
   { name: "Haines City", href: "/service-areas/haines-city" },
@@ -79,7 +79,7 @@ export default function Header() {
       )}
     >
       <nav aria-label="Main navigation" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20 lg:h-22">
+        <div className="flex items-center justify-between h-22 lg:h-24">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0" aria-label="Long's Land Management home">
             <Image
@@ -87,7 +87,7 @@ export default function Header() {
               alt="Long's Land Management"
               width={240}
               height={160}
-              className="h-14 lg:h-16 w-auto"
+              className="h-[72px] lg:h-20 w-auto"
               priority
             />
           </Link>

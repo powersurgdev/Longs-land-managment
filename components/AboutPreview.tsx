@@ -31,7 +31,7 @@ export default function AboutPreview() {
             <p className="text-muted-foreground leading-relaxed mb-4">
               Long&apos;s Land Management was founded by Konnore Long with a
               simple goal — deliver quality land work at a fair price. As a
-              family-owned business based in Durant, FL, our low overhead means
+              family-owned business based in Plant City, FL, our low overhead means
               we pass the savings on to you.
             </p>
             <p className="text-muted-foreground leading-relaxed mb-6">

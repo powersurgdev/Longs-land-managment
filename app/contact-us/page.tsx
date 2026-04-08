@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Phone, MapPin, Clock, Mail } from "lucide-react";
+import Link from "next/link";
+import { Phone, MapPin, Clock } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
+  title: "Contact Us — Free Estimates in Central Florida",
   description:
-    "Get a free estimate for land clearing, forestry mulching, site prep, grading, or horse arena construction in Central Florida. Call (813) 393-8359.",
+    "Request a free estimate for land clearing, forestry mulching, site prep, or grading in Polk & Hillsborough counties. Call or text (813) 393-8359.",
   alternates: { canonical: "/contact-us" },
   openGraph: {
     title: "Contact Us — Long's Land Management",
     description:
-      "Get a free estimate for land management services in Central Florida.",
+      "Request a free estimate for land clearing, forestry mulching, site prep, or grading in Central Florida. Call (813) 393-8359.",
     url: "/contact-us",
     images: [{ url: "/og-images/contact-us.png", width: 1200, height: 630 }],
   },
@@ -21,8 +22,62 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ContactPage",
+      name: "Contact Long's Land Management",
+      description:
+        "Request a free estimate for land clearing, forestry mulching, site prep, grading, or horse arena construction in Central Florida.",
+      url: "https://longslandmanagement.com/contact-us",
+      mainEntity: {
+        "@type": "LocalBusiness",
+        name: "Long's Land Management",
+        telephone: "+18133938359",
+        url: "https://longslandmanagement.com",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Plant City",
+          addressRegion: "FL",
+          postalCode: "33567",
+          addressCountry: "US",
+        },
+        openingHoursSpecification: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "08:00",
+          closes: "18:00",
+        },
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://longslandmanagement.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Contact Us",
+          item: "https://longslandmanagement.com/contact-us",
+        },
+      ],
+    },
+  ],
+};
+
 export default function ContactPage() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     <div className="min-h-screen">
       {/* Hero */}
       <section className="bg-[oklch(0.12_0_0)] text-white pt-32 sm:pt-40 pb-16 sm:pb-20">
@@ -75,7 +130,7 @@ export default function ContactPage() {
                     <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                     <div>
                       <p className="font-medium">Location</p>
-                      <p className="text-muted-foreground">Durant, FL 33530</p>
+                      <p className="text-muted-foreground">Plant City, FL 33567</p>
                     </div>
                   </div>
 
@@ -113,14 +168,16 @@ export default function ContactPage() {
                     Central Florida including:
                   </p>
                   <ul className="text-sm text-muted-foreground space-y-1">
-                    <li>Plant City, FL</li>
-                    <li>Lakeland, FL</li>
-                    <li>Bartow, FL</li>
-                    <li>Winter Haven, FL</li>
-                    <li>Tampa, FL</li>
-                    <li>Brandon, FL</li>
-                    <li className="text-primary font-medium">
-                      + more across Central Florida
+                    <li><Link href="/service-areas/plant-city" className="hover:text-primary transition-colors">Plant City, FL</Link></li>
+                    <li><Link href="/service-areas/lakeland" className="hover:text-primary transition-colors">Lakeland, FL</Link></li>
+                    <li><Link href="/service-areas/bartow" className="hover:text-primary transition-colors">Bartow, FL</Link></li>
+                    <li><Link href="/service-areas/winter-haven" className="hover:text-primary transition-colors">Winter Haven, FL</Link></li>
+                    <li><Link href="/service-areas/tampa" className="hover:text-primary transition-colors">Tampa, FL</Link></li>
+                    <li><Link href="/service-areas/lutz" className="hover:text-primary transition-colors">Lutz, FL</Link></li>
+                    <li>
+                      <Link href="/service-areas" className="text-primary font-medium hover:underline">
+                        + more across Central Florida
+                      </Link>
                     </li>
                   </ul>
                 </CardContent>
@@ -130,5 +187,6 @@ export default function ContactPage() {
         </div>
       </section>
     </div>
+    </>
   );
 }

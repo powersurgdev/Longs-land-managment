@@ -18,18 +18,9 @@ const services = [
     description:
       "One-step land clearing that grinds vegetation into nutrient-rich mulch — no hauling, no burning.",
     href: "/forestry-mulching",
-    image: "/images/forestry-mulching.jpg",
-    imagePosition: "center 60%",
-    alt: "Forestry mulcher clearing brush in a Florida pine forest",
-  },
-  {
-    title: "Horse Arena Construction",
-    description:
-      "Custom horse arena builds from planning through finishing — base prep, grading, drainage, and fencing.",
-    href: "/horse-arena-construction",
-    image: "/images/horse-arena.jpg",
-    imagePosition: "center 40%",
-    alt: "Horse arena being graded with laser equipment in Central Florida",
+    image: "/images/clearing-pine-forest.jpg",
+    imagePosition: "center 50%",
+    alt: "Excavator and mulching equipment clearing a pine forest in Central Florida",
   },
   {
     title: "Site Prep",
@@ -48,6 +39,15 @@ const services = [
     image: "/images/land-grading.jpg",
     imagePosition: "center 35%",
     alt: "Bulldozer and skid steer performing precision land grading",
+  },
+  {
+    title: "Horse Arena Construction",
+    description:
+      "Custom horse arena builds from planning through finishing — base prep, grading, drainage, and fencing.",
+    href: "/horse-arena-construction",
+    image: "/images/horse-arena-sand-farmhouse.jpg",
+    imagePosition: "center 45%",
+    alt: "Completed horse arena with sand footing at a Florida farmhouse property",
   },
 ];
 
@@ -97,7 +97,7 @@ export default function ServicesOverview() {
     <section className="py-16 sm:py-20 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Our Land Management Services</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Our Services</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Land clearing, forestry mulching, site prep, grading, and horse
             arena construction — serving residential and commercial properties

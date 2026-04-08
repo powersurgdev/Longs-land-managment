@@ -16,8 +16,8 @@ export type ContactFormData = z.infer<typeof contactFormSchema>;
 export const serviceOptions = [
   "Land Clearing",
   "Forestry Mulching",
-  "Horse Arena Construction",
   "Site Prep",
   "Precision Land Grading",
+  "Horse Arena Construction",
   "Other",
 ] as const;

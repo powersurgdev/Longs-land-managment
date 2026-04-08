@@ -64,7 +64,7 @@ export default function ContactFormCTA() {
                 <div>
                   <p className="text-sm text-white/50">Based In</p>
                   <p className="font-semibold text-white/90">
-                    Durant, FL 33530
+                    Plant City, FL 33567
                   </p>
                 </div>
               </div>

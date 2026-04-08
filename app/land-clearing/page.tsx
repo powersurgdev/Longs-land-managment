@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ServicePageLayout from "@/components/ServicePageLayout";
-import type { ServiceFeature } from "@/components/ServicePageLayout";
+import type { ServiceFeature, ShowcaseImage } from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
-  title: "Land Clearing",
+  title: "Land Clearing in Plant City & Central Florida",
   description:
     "Professional land clearing in Plant City, Lakeland, Bartow & Central FL. Lot clearing, bush hogging & underbrush removal. Free estimates — (813) 393-8359.",
   alternates: { canonical: "/land-clearing" },
@@ -63,6 +64,13 @@ const features: ServiceFeature[] = [
   },
 ];
 
+const showcaseImages: ShowcaseImage[] = [
+  { src: "/images/land-clearing-hero.jpg", alt: "Land clearing equipment working on a Central Florida property" },
+  { src: "/images/cleared-residential-lot.jpg", alt: "Cleared residential lot ready for construction" },
+  { src: "/images/skid-steer-residential-clearing.jpg", alt: "Skid steer clearing a residential wooded lot" },
+  { src: "/images/selective-clearing-oaks.jpg", alt: "Selectively cleared land preserving mature oak trees" },
+];
+
 const relatedServices = [
   { name: "Forestry Mulching", href: "/forestry-mulching" },
   { name: "Site Prep", href: "/site-prep" },
@@ -79,15 +87,15 @@ const jsonLd = {
       description:
         "Professional land clearing services including lot clearing, bush hogging, underbrush removal, and complete vegetation clearing for residential and commercial properties.",
       provider: {
-        "@type": "HomeAndConstructionBusiness",
+        "@type": "LocalBusiness",
         name: "Long's Land Management",
         telephone: "+18133938359",
         url: "https://longslandmanagement.com",
         address: {
           "@type": "PostalAddress",
-          addressLocality: "Durant",
+          addressLocality: "Plant City",
           addressRegion: "FL",
-          postalCode: "33530",
+          postalCode: "33567",
           addressCountry: "US",
         },
       },
@@ -96,7 +104,7 @@ const jsonLd = {
         { "@type": "City", name: "Lakeland" },
         { "@type": "City", name: "Bartow" },
         { "@type": "City", name: "Tampa" },
-        { "@type": "City", name: "Brandon" },
+        { "@type": "City", name: "Lutz" },
         { "@type": "City", name: "Riverview" },
         { "@type": "AdministrativeArea", name: "Polk County, FL" },
         { "@type": "AdministrativeArea", name: "Hillsborough County, FL" },
@@ -124,6 +132,7 @@ export default function LandClearingPage() {
       title="Land Clearing"
       description="We're a fully qualified land management company serving Polk and Hillsborough counties. Whether you need a small residential lot cleared or acres of commercial property — if you want it gone, it's gone."
       features={features}
+      showcaseImages={showcaseImages}
       relatedServices={relatedServices}
       heroImage="/images/land-clearing-hero.jpg"
       heroAlt="Land clearing equipment on a job site in Central Florida"
@@ -135,17 +144,18 @@ export default function LandClearingPage() {
               Clearing Land the Right Way
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Land clearing is more than just knocking down trees. It takes the
-              right equipment, local knowledge, and an eye for detail to clear a
-              property safely and efficiently. At Long&apos;s Land Management, we
-              handle everything from thick underbrush to heavy-duty bush hogging
-              across Lakeland, Bartow, Plant City, and all of Central Florida.
+              Land clearing takes the right equipment, local knowledge, and an
+              eye for detail. We handle everything from thick underbrush to
+              heavy-duty bush hogging across Lakeland, Bartow, Plant City, and
+              all of Central Florida.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              As a family-owned business with low overhead, we keep our prices
-              competitive without cutting corners. Every project gets the same
-              attention to detail — whether it&apos;s a half-acre lot or a
-              multi-acre commercial site.
+              Every job starts with a property assessment — we walk the site,
+              identify what stays and what goes, and plan access points for our
+              equipment. Depending on the vegetation, we bring in skid steers,
+              excavators, <Link href="/forestry-mulching" className="text-primary hover:underline">forestry mulchers</Link>, or bush hogs to get the job done
+              efficiently. The goal is always the same: leave you with a clean,
+              usable site that&apos;s ready for <Link href="/site-prep" className="text-primary hover:underline">site prep</Link> and whatever comes next.
             </p>
           </div>
 
@@ -153,12 +163,19 @@ export default function LandClearingPage() {
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">
               Residential &amp; Commercial Projects
             </h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              We work with homeowners, builders, developers, and farmers
+              throughout Central Florida. On the commercial side, that includes
+              developers clearing lots for new subdivisions, builders prepping
+              multiple parcels, property managers dealing with overgrown land,
+              and municipalities that need right-of-way or easement clearing.
+            </p>
             <p className="text-muted-foreground leading-relaxed">
-              Building a new home? Prepping a commercial site? Cleaning up a
-              neglected property? We work with homeowners, builders, developers,
-              and farmers throughout Central Florida. We&apos;ll assess your
-              property, give you an honest estimate, and get the work done on
-              time.
+              We have the equipment to handle multi-acre commercial sites and
+              can work on phased development timelines — clearing sections as
+              your project moves forward. We also coordinate directly with
+              general contractors and builders as a subcontractor, so the
+              clearing fits your construction schedule.
             </p>
           </div>
         </div>

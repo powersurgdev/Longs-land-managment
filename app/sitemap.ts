@@ -15,14 +15,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/about-us", priority: 0.8, changeFrequency: "monthly" },
     { path: "/land-clearing", priority: 0.9, changeFrequency: "monthly" },
     { path: "/forestry-mulching", priority: 0.9, changeFrequency: "monthly" },
-    {
-      path: "/horse-arena-construction",
-      priority: 0.9,
-      changeFrequency: "monthly",
-    },
     { path: "/site-prep", priority: 0.9, changeFrequency: "monthly" },
     {
       path: "/precision-land-grading",
+      priority: 0.9,
+      changeFrequency: "monthly",
+    },
+    {
+      path: "/horse-arena-construction",
       priority: 0.9,
       changeFrequency: "monthly",
     },

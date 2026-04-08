@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ServicePageLayout from "@/components/ServicePageLayout";
-import type { ServiceFeature } from "@/components/ServicePageLayout";
+import type { ServiceFeature, ShowcaseImage } from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
-  title: "Horse Arena Construction",
+  title: "Horse Arena Construction in Plant City & Central Florida",
   description:
     "Custom horse arena construction in Plant City, Lakeland & Central FL. Base prep, grading, drainage & fencing. Free estimates — (813) 393-8359.",
   alternates: { canonical: "/horse-arena-construction" },
@@ -65,6 +66,13 @@ const features: ServiceFeature[] = [
   },
 ];
 
+const showcaseImages: ShowcaseImage[] = [
+  { src: "/images/horse-arena.jpg", alt: "Horse arena under construction in Central Florida" },
+  { src: "/images/horse-arena-finished.jpg", alt: "Completed horse arena with sand footing" },
+  { src: "/images/horse-arena-sand-farmhouse.jpg", alt: "Horse arena with sand footing at a Florida farmhouse" },
+  { src: "/images/graded-field.jpg", alt: "Graded field prepared for arena construction" },
+];
+
 const relatedServices = [
   { name: "Land Clearing", href: "/land-clearing" },
   { name: "Site Prep", href: "/site-prep" },
@@ -120,7 +128,7 @@ const jsonLd = {
       description:
         "Custom horse arena construction from the ground up — land clearing, site prep, precision grading, drainage, footing installation, and fencing. One contractor from start to finish.",
       provider: {
-        "@type": "HomeAndConstructionBusiness",
+        "@type": "LocalBusiness",
         name: "Long's Land Management",
         telephone: "+18133938359",
         url: "https://longslandmanagement.com",
@@ -156,6 +164,7 @@ export default function HorseArenaPage() {
       title="Horse Arena Construction"
       description="We build custom horse arenas from the ground up — land clearing, site prep, precision grading, drainage, and fencing. One contractor from start to finish."
       features={features}
+      showcaseImages={showcaseImages}
       relatedServices={relatedServices}
       heroImage="/images/horse-arena.jpg"
       heroAlt="Horse arena under construction with graded sand footing in Florida"
@@ -170,9 +179,18 @@ export default function HorseArenaPage() {
             <p className="text-muted-foreground leading-relaxed mb-4">
               Whether it&apos;s dressage, jumping, barrels, or general riding, we
               tailor every arena to your specific needs. One contractor handles
-              every phase — so the base is built with the footing in mind, drainage
-              is graded correctly the first time, and you have one point of contact
+              every phase — <Link href="/land-clearing" className="text-primary hover:underline">land clearing</Link>,{" "}
+              <Link href="/site-prep" className="text-primary hover:underline">site prep</Link>,{" "}
+              and <Link href="/precision-land-grading" className="text-primary hover:underline">precision grading</Link> — so the base is built with the footing in mind, drainage
+              is right the first time, and you have one point of contact
               from start to finish.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              We build arenas for private riders, boarding facilities, riding
+              schools, and equestrian event centers. Whether you need a
+              single-discipline arena on your property or a multi-arena setup
+              for a commercial equestrian operation, the same attention to base
+              construction, drainage, and footing applies.
             </p>
           </div>
 

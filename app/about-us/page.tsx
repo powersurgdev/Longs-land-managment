@@ -4,14 +4,14 @@ import { Users, ShieldCheck, DollarSign, MapPin, Wrench, Clock } from "lucide-re
 import ContactCTA from "@/components/ContactCTA";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "About Long's Land Management — Family-Owned in Central Florida",
   description:
-    "Family-owned land management company founded by Konnore Long, serving Polk and Hillsborough counties in Central Florida.",
+    "Founded by Konnore Long and based in Plant City, FL. We're a family-owned land management company serving Polk & Hillsborough counties — fully insured, fair pricing, and modern equipment.",
   alternates: { canonical: "/about-us" },
   openGraph: {
-    title: "About Us — Long's Land Management",
+    title: "About Long's Land Management — Family-Owned in Central Florida",
     description:
-      "Family-owned land management company founded by Konnore Long, serving Central Florida.",
+      "Founded by Konnore Long and based in Plant City, FL. Family-owned land management serving Polk & Hillsborough counties.",
     url: "/about-us",
     images: [{ url: "/og-images/about-us.png", width: 1200, height: 630 }],
   },
@@ -19,6 +19,53 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     images: ["/og-images/about-us.png"],
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      name: "About Long's Land Management",
+      description:
+        "Family-owned land management company founded by Konnore Long, based in Plant City, FL. Serving Polk and Hillsborough counties with land clearing, forestry mulching, site prep, grading, and horse arena construction.",
+      url: "https://longslandmanagement.com/about-us",
+      mainEntity: {
+        "@type": "LocalBusiness",
+        name: "Long's Land Management",
+        telephone: "+18133938359",
+        url: "https://longslandmanagement.com",
+        founder: {
+          "@type": "Person",
+          name: "Konnore Long",
+        },
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Plant City",
+          addressRegion: "FL",
+          postalCode: "33567",
+          addressCountry: "US",
+        },
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://longslandmanagement.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "About Us",
+          item: "https://longslandmanagement.com/about-us",
+        },
+      ],
+    },
+  ],
 };
 
 const values = [
@@ -62,6 +109,11 @@ const values = [
 
 export default function AboutPage() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     <div className="min-h-screen">
       {/* Hero */}
       <section className="bg-[oklch(0.12_0_0)] text-white pt-32 sm:pt-40 pb-16 sm:pb-20">
@@ -102,7 +154,7 @@ export default function AboutPage() {
               <p className="text-muted-foreground leading-relaxed mb-4">
                 Konnore Long founded Long&apos;s Land Management with many
                 years of experience in the land management business. Based out
-                of Durant, FL, the company serves Polk and Hillsborough counties
+                of Plant City, FL, the company serves Polk and Hillsborough counties
                 along with all of Central Florida.
               </p>
               <p className="text-muted-foreground leading-relaxed mb-4">
@@ -157,5 +209,6 @@ export default function AboutPage() {
         description="Give us a call or request a free estimate. We're happy to visit your property and discuss what you need."
       />
     </div>
+    </>
   );
 }

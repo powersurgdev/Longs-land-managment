@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ServicePageLayout from "@/components/ServicePageLayout";
-import type { ServiceFeature } from "@/components/ServicePageLayout";
+import type { ServiceFeature, ShowcaseImage } from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
-  title: "Precision Land Grading",
+  title: "Precision Land Grading in Plant City & Central Florida",
   description:
     "Precision land grading in Plant City, Lakeland, Bartow & Central FL. Laser-guided grading, drainage & foundation work. Free estimates — (813) 393-8359.",
   alternates: { canonical: "/precision-land-grading" },
@@ -73,6 +74,18 @@ const features: ServiceFeature[] = [
     description:
       "GPS and laser-guided equipment ensures accurate slopes, elevations, and drainage.",
   },
+  {
+    title: "Commercial & Subdivision Grading",
+    description:
+      "Grade pad sites, parking areas, and multi-lot developments to engineer-specified elevations.",
+  },
+];
+
+const showcaseImages: ShowcaseImage[] = [
+  { src: "/images/graded-field.jpg", alt: "Precision graded field in Central Florida" },
+  { src: "/images/graded-field-sunset.jpg", alt: "Precision graded field with tire track patterns at sunset" },
+  { src: "/images/grading-active.jpg", alt: "Equipment actively grading a property" },
+  { src: "/images/grading-residential.jpg", alt: "Residential land grading project" },
 ];
 
 const relatedServices = [
@@ -118,7 +131,7 @@ const jsonLd = {
       description:
         "Laser-guided precision land grading services including architectural grading, drainage grading, driveway construction, foundation backfilling, and lot scraping.",
       provider: {
-        "@type": "HomeAndConstructionBusiness",
+        "@type": "LocalBusiness",
         name: "Long's Land Management",
         telephone: "+18133938359",
         url: "https://longslandmanagement.com",
@@ -154,6 +167,7 @@ export default function PrecisionLandGradingPage() {
       title="Precision Land Grading"
       description="We provide laser grading services for the specialty needs of property owners throughout Central Florida. Accurate slopes, proper drainage, and solid foundations — done right the first time."
       features={features}
+      showcaseImages={showcaseImages}
       relatedServices={relatedServices}
       heroImage="/images/graded-field.jpg"
       heroAlt="Precision graded field with equipment in Central Florida"
@@ -186,16 +200,17 @@ export default function PrecisionLandGradingPage() {
               Grading Done with Precision
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Precision grading uses specialized equipment to create accurate
-              slopes and elevations. This matters for proper drainage, solid
-              foundations, and the long-term stability of your property. Whether
-              you need a building pad leveled or an entire lot regraded, we have
-              the skill and experience to get it right.
+              Our team knows the Central Florida landscape — the sandy soils,
+              the flat terrain, and the drainage challenges that come with it.
+              Whether you need a building pad leveled or an entire lot regraded,
+              we deliver quality work at an affordable price.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              Our team knows the Central Florida landscape — the sandy soils, the
-              flat terrain, and the drainage challenges that come with it. We
-              deliver quality work and quality service at an affordable price.
+              Precision matters because the consequences of a bad grade show up
+              fast — foundations settle, drainage backs up, slabs crack, and
+              inspections fail. Our laser-guided equipment delivers accuracy
+              within fractions of an inch, so the site is right before the next
+              contractor steps on it.
             </p>
           </div>
 
@@ -206,6 +221,25 @@ export default function PrecisionLandGradingPage() {
               className="object-cover w-full h-full"
             />
           </div>
+        </div>
+
+        {/* Commercial callout */}
+        <div>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+            Residential &amp; Commercial Grading
+          </h2>
+          <p className="text-muted-foreground leading-relaxed mb-4">
+            We grade for residential homebuilders — new construction pads,
+            driveways, and landscape grading — often following <Link href="/land-clearing" className="text-primary hover:underline">land clearing</Link> and <Link href="/site-prep" className="text-primary hover:underline">site prep</Link>. We also work with commercial developers
+            working on parking lots, retail pad sites, warehouses, and
+            multi-unit developments. We work alongside general contractors as a
+            grading sub, so the site is built to spec and ready on schedule.
+          </p>
+          <p className="text-muted-foreground leading-relaxed">
+            Municipalities and HOAs also bring us in for drainage regrading,
+            swale maintenance, and stormwater management projects. Whatever
+            the scale, the same precision and local knowledge apply.
+          </p>
         </div>
       </div>
     </ServicePageLayout>

@@ -30,18 +30,9 @@ const services = [
     href: "/forestry-mulching",
     description:
       "One-step land clearing that grinds vegetation into nutrient-rich mulch. No hauling, no burning.",
-    image: "/images/forestry-mulching.jpg",
-    imagePosition: "center 60%",
-    alt: "Forestry mulcher clearing brush in a Florida pine forest",
-  },
-  {
-    title: "Horse Arena Construction",
-    href: "/horse-arena-construction",
-    description:
-      "Custom arena builds from planning to finish — base prep, grading, drainage, and fencing.",
-    image: "/images/horse-arena.jpg",
-    imagePosition: "center 40%",
-    alt: "Horse arena being graded with laser equipment in Central Florida",
+    image: "/images/clearing-pine-forest.jpg",
+    imagePosition: "center 50%",
+    alt: "Excavator and mulching equipment clearing a pine forest in Central Florida",
   },
   {
     title: "Site Prep",
@@ -60,6 +51,15 @@ const services = [
     image: "/images/land-grading.jpg",
     imagePosition: "center 35%",
     alt: "Bulldozer and skid steer performing precision land grading",
+  },
+  {
+    title: "Horse Arena Construction",
+    href: "/horse-arena-construction",
+    description:
+      "Custom arena builds from planning to finish — base prep, grading, drainage, and fencing.",
+    image: "/images/horse-arena-sand-farmhouse.jpg",
+    imagePosition: "center 45%",
+    alt: "Completed horse arena with sand footing at a Florida farmhouse property",
   },
 ];
 
@@ -144,12 +144,32 @@ export default function CityServiceArea({ city }: CityServiceAreaProps) {
         </div>
       </section>
 
+      {/* ===== CITY INTRO — unique content per city ===== */}
+      <section className="py-16 sm:py-20 bg-muted/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">
+              Land Clearing &amp; Site Work in {city.name}
+            </h2>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              {city.description}
+            </p>
+            <p className="text-muted-foreground leading-relaxed">
+              From residential lots to commercial acreage, we bring the same
+              equipment, expertise, and attention to detail on every job in{" "}
+              {city.name} and {city.county}. Fully insured, competitively
+              priced, and locally operated out of Plant City, FL.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* ===== SERVICES — mirrors homepage ServicesOverview ===== */}
       <section className="py-16 sm:py-20 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Our Land Management Services in {city.name}
+              Our Services in {city.name}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Professional land clearing, forestry mulching, site prep, grading,

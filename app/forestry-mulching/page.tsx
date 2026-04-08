@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import ServicePageLayout from "@/components/ServicePageLayout";
-import type { ServiceFeature } from "@/components/ServicePageLayout";
+import type { ServiceFeature, ShowcaseImage } from "@/components/ServicePageLayout";
 
 export const metadata: Metadata = {
-  title: "Forestry Mulching",
+  title: "Forestry Mulching in Plant City & Central Florida",
   description:
     "Forestry mulching in Plant City, Lakeland, Bartow & Central FL. One-step clearing — no hauling, no burning. Free estimates — (813) 393-8359.",
   alternates: { canonical: "/forestry-mulching" },
@@ -63,6 +64,13 @@ const features: ServiceFeature[] = [
   },
 ];
 
+const showcaseImages: ShowcaseImage[] = [
+  { src: "/images/forestry-mulching.jpg", alt: "Forestry mulching machinery clearing brush in Central Florida" },
+  { src: "/images/mulching-path-pine-forest.jpg", alt: "Mulching path cleared through pine forest" },
+  { src: "/images/clearing-pine-forest.jpg", alt: "Pine forest being cleared with mulching equipment" },
+  { src: "/images/selective-clearing-oaks.jpg", alt: "Selectively cleared land preserving mature oak trees" },
+];
+
 const relatedServices = [
   { name: "Land Clearing", href: "/land-clearing" },
   { name: "Site Prep", href: "/site-prep" },
@@ -79,7 +87,7 @@ const jsonLd = {
       description:
         "One-step land clearing that grinds trees, brush, and vegetation into nutrient-rich mulch. No hauling, no burning. Selective clearing available.",
       provider: {
-        "@type": "HomeAndConstructionBusiness",
+        "@type": "LocalBusiness",
         name: "Long's Land Management",
         telephone: "+18133938359",
         url: "https://longslandmanagement.com",
@@ -115,6 +123,7 @@ export default function ForestryMulchingPage() {
       title="Forestry Mulching"
       description="We operate a variety of mulchers and brushcutters that cut, grind, and clear vegetation quickly and completely — leaving nutrient-rich material on the ground with minimal disturbance."
       features={features}
+      showcaseImages={showcaseImages}
       relatedServices={relatedServices}
       heroImage="/images/forestry-mulching.jpg"
       heroAlt="Forestry mulching machinery clearing brush in Central Florida"
@@ -126,16 +135,21 @@ export default function ForestryMulchingPage() {
               What Is Forestry Mulching?
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-4">
-              Forestry mulching is a one-step land clearing method that uses
-              heavy machinery to grind trees, brush, and vegetation into mulch.
-              The mulch stays on the ground, adding nutrients back to the soil
-              and helping prevent erosion. No burning, no hauling debris off-site.
+              Forestry mulching uses heavy machinery to grind trees, brush, and
+              vegetation into mulch that stays on the ground — adding nutrients
+              back to the soil and preventing erosion.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-4">
+              It&apos;s faster and more cost-effective than <Link href="/land-clearing" className="text-primary hover:underline">traditional clearing</Link>,
+              and we can selectively clear — removing unwanted brush while
+              preserving mature trees.
             </p>
             <p className="text-muted-foreground leading-relaxed">
-              It&apos;s often faster and more cost-effective than traditional
-              clearing methods, and it&apos;s better for the environment. We can
-              also selectively clear — removing unwanted brush while preserving
-              mature trees and desirable growth.
+              We work with homeowners, developers, ranchers, utility companies,
+              and municipalities across Central Florida. Developers clearing
+              multi-acre parcels prefer forestry mulching because there&apos;s
+              no hauling, no burn permits, and the mulch left behind controls
+              erosion during the development process.
             </p>
           </div>
 
@@ -143,14 +157,14 @@ export default function ForestryMulchingPage() {
             <h2 className="text-2xl sm:text-3xl font-bold mb-4">
               Applications
             </h2>
-            <p className="text-muted-foreground leading-relaxed mb-4">
-              Forestry mulching works well for a wide range of projects across
-              Central Florida:
-            </p>
             <ul className="space-y-2 text-muted-foreground">
               <li className="flex items-start gap-2">
                 <span className="text-primary font-bold">&#8226;</span>
-                <span><strong>Land development</strong> — clear lots for construction without hauling costs</span>
+                <span><strong>Land development</strong> — clear lots for construction without hauling costs, leaving the site ready for <Link href="/site-prep" className="text-primary hover:underline">site prep</Link></span>
+              </li>
+              <li className="flex items-start gap-2">
+                <span className="text-primary font-bold">&#8226;</span>
+                <span><strong>Commercial &amp; municipal work</strong> — developers, builders, HOAs, and government agencies clearing land for construction, maintaining easements, or managing vegetation on public property</span>
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-primary font-bold">&#8226;</span>

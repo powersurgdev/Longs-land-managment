@@ -11,12 +11,25 @@ export interface ServiceFeature {
   description: string;
 }
 
+export interface ShowcaseImage {
+  src: string;
+  alt: string;
+}
+
+const defaultShowcaseImages: ShowcaseImage[] = [
+  { src: "/images/bulldozer-pond-grading.jpg", alt: "Bulldozer grading beside a pond with Spanish moss oaks in Central Florida" },
+  { src: "/images/skid-steer-residential-clearing.jpg", alt: "Skid steer clearing a residential wooded lot" },
+  { src: "/images/selective-clearing-oaks.jpg", alt: "Selectively cleared land preserving mature oak trees" },
+  { src: "/images/excavator-pond-job.jpg", alt: "Excavator and equipment working on a pond project" },
+];
+
 interface ServicePageLayoutProps {
   title: string;
   description: string;
   heroImage?: string;
   heroAlt?: string;
   features: ServiceFeature[];
+  showcaseImages?: ShowcaseImage[];
   children?: React.ReactNode;
   relatedServices: Array<{ name: string; href: string }>;
 }
@@ -27,9 +40,12 @@ export default function ServicePageLayout({
   heroImage,
   heroAlt,
   features,
+  showcaseImages,
   children,
   relatedServices,
 }: ServicePageLayoutProps) {
+  const images = showcaseImages ?? defaultShowcaseImages;
+
   return (
     <div className="min-h-screen">
       {/* ===== HERO ===== */}
@@ -107,7 +123,31 @@ export default function ServicePageLayout({
         </div>
       </section>
 
-      {/* ===== WHAT WE OFFER (clean, no borders) ===== */}
+      {/* ===== CUSTOM CONTENT (unique per page) ===== */}
+      {children && (
+        <section className="py-14 sm:py-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {children}
+          </div>
+        </section>
+      )}
+
+      {/* ===== PHOTO STRIP ===== */}
+      <div className="grid grid-cols-2 lg:grid-cols-4">
+        {images.map((img) => (
+          <div key={img.src} className="relative aspect-[3/2] overflow-hidden group">
+            <Image
+              src={img.src}
+              alt={img.alt}
+              fill
+              sizes="(max-width: 1024px) 50vw, 25vw"
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+        ))}
+      </div>
+
+      {/* ===== WHAT WE OFFER (full feature list) ===== */}
       <section className="py-14 sm:py-16 bg-muted/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl sm:text-3xl font-bold mb-8 text-center">
@@ -128,15 +168,6 @@ export default function ServicePageLayout({
           </div>
         </div>
       </section>
-
-      {/* ===== CUSTOM CONTENT (unique per page) ===== */}
-      {children && (
-        <section className="py-14 sm:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            {children}
-          </div>
-        </section>
-      )}
 
       {/* ===== SERVICE AREAS + RELATED SERVICES (dark bg) ===== */}
       <section className="py-14 sm:py-20 bg-[oklch(0.12_0_0)] text-white">
@@ -195,26 +226,6 @@ export default function ServicePageLayout({
           </div>
         </div>
       </section>
-
-      {/* ===== IMAGE STRIP ===== */}
-      <div className="grid grid-cols-2 lg:grid-cols-4">
-        {[
-          { src: "/images/bulldozer-pond-grading.jpg", alt: "Bulldozer grading beside a pond with Spanish moss oaks in Central Florida" },
-          { src: "/images/skid-steer-residential-clearing.jpg", alt: "Skid steer clearing a residential wooded lot" },
-          { src: "/images/selective-clearing-oaks.jpg", alt: "Selectively cleared land preserving mature oak trees" },
-          { src: "/images/excavator-pond-job.jpg", alt: "Excavator and equipment working on a pond project" },
-        ].map((img) => (
-          <div key={img.src} className="relative aspect-[3/2] overflow-hidden group">
-            <Image
-              src={img.src}
-              alt={img.alt}
-              fill
-              sizes="(max-width: 1024px) 50vw, 25vw"
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-            />
-          </div>
-        ))}
-      </div>
 
       {/* ===== REVIEWS ===== */}
       <ReviewsSection variant="b" />

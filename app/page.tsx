@@ -9,7 +9,7 @@ import ContactFormCTA from "@/components/ContactFormCTA";
 export const metadata: Metadata = {
   title: "Long's Land Management — Land Clearing, Forestry Mulching & Site Prep in Central Florida",
   description:
-    "Long's Land Management provides professional land clearing, forestry mulching, horse arena construction, site prep & precision grading in Plant City, Lakeland, Bartow & Central FL. Free estimates. Call (813) 393-8359.",
+    "Professional land clearing, forestry mulching & site prep in Plant City, Lakeland & Central FL. Family-owned, fully insured. Free estimates — (813) 393-8359.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "Long's Land Management — Trusted Land Clearing Pros in Central Florida",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
+  "@type": "LocalBusiness",
   name: "Long's Land Management",
   url: "https://longslandmanagement.com",
   description:
@@ -40,9 +40,9 @@ const jsonLd = {
   },
   address: {
     "@type": "PostalAddress",
-    addressLocality: "Durant",
+    addressLocality: "Plant City",
     addressRegion: "FL",
-    postalCode: "33530",
+    postalCode: "33567",
     addressCountry: "US",
   },
   geo: {
@@ -53,9 +53,9 @@ const jsonLd = {
   serviceType: [
     "Land Clearing",
     "Forestry Mulching",
-    "Horse Arena Construction",
     "Site Preparation",
     "Precision Land Grading",
+    "Horse Arena Construction",
   ],
   areaServed: [
     { "@type": "City", name: "Plant City", containedInPlace: { "@type": "State", name: "Florida" } },

@@ -3,14 +3,14 @@ import ServiceAreasList from "@/components/ServiceAreasList";
 import ContactCTA from "@/components/ContactCTA";
 
 export const metadata: Metadata = {
-  title: "Service Areas",
+  title: "Service Areas — Land Clearing Across Polk & Hillsborough Counties",
   description:
-    "We serve Polk County, Hillsborough County, and all of Central Florida. Land clearing, forestry mulching, site prep, grading, and horse arena construction.",
+    "Based in Plant City, FL and serving all of Central Florida. Land clearing, forestry mulching, site prep, and grading in Lakeland, Bartow, Tampa, Lutz, Winter Haven & more.",
   alternates: { canonical: "/service-areas" },
   openGraph: {
     title: "Service Areas — Long's Land Management",
     description:
-      "We serve Polk County, Hillsborough County, and all of Central Florida.",
+      "Based in Plant City, FL. Land clearing, forestry mulching, site prep, and grading across Polk & Hillsborough counties.",
     url: "/service-areas",
     images: [{ url: "/og-images/service-areas.png", width: 1200, height: 630 }],
   },
@@ -20,8 +20,43 @@ export const metadata: Metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      name: "Service Areas — Long's Land Management",
+      description:
+        "Land clearing, forestry mulching, site prep, grading, and horse arena construction across Polk County, Hillsborough County, and Central Florida.",
+      url: "https://longslandmanagement.com/service-areas",
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://longslandmanagement.com",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Service Areas",
+          item: "https://longslandmanagement.com/service-areas",
+        },
+      ],
+    },
+  ],
+};
+
 export default function ServiceAreasPage() {
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     <div className="min-h-screen">
       <section className="bg-[oklch(0.12_0_0)] text-white pt-32 sm:pt-40 pb-16 sm:pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -32,7 +67,7 @@ export default function ServiceAreasPage() {
             Service Areas
           </h1>
           <p className="text-lg text-white/70 max-w-3xl">
-            We&apos;re based in Durant, FL and serve communities across Polk
+            We&apos;re based in Plant City, FL and serve communities across Polk
             County, Hillsborough County, and all of Central Florida.
           </p>
         </div>
@@ -49,5 +84,6 @@ export default function ServiceAreasPage() {
         description="If you're in Central Florida, we can help. Call us for a free estimate or fill out our contact form."
       />
     </div>
+    </>
   );
 }

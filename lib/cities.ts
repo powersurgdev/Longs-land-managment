@@ -18,7 +18,7 @@ export const cities: CityData[] = [
     county: "Hillsborough County",
     description:
       "Known as the Winter Strawberry Capital, Plant City is a growing community where agricultural land meets new residential and commercial development. We handle land clearing, site prep, and grading for property owners across the area.",
-    nearby: ["brandon", "lakeland", "tampa"],
+    nearby: ["lutz", "lakeland", "tampa"],
     heroHeadline: "Plant City's Trusted Land Clearing Pros",
     heroSubtext:
       "Residential lots to commercial acreage in Plant City and eastern Hillsborough County — we clear, mulch, grade, and prep land for homeowners, builders, and developers. Family-owned. Fully insured.",
@@ -37,7 +37,7 @@ export const cities: CityData[] = [
     heroHeadline: "Lakeland's Trusted Land Clearing Pros",
     heroSubtext:
       "From new construction sites to rural acreage across Lakeland and Polk County — we handle land clearing, forestry mulching, site prep, and precision grading. No job too big or too small.",
-    metaTitle: "Land Clearing & Site Prep in Lakeland, FL",
+    metaTitle: "Land Clearing & Forestry Mulching in Lakeland, FL",
     metaDescription:
       "Land clearing, forestry mulching, site prep & grading in Lakeland, FL. Serving Polk County. Family-owned, fully insured. Free estimates — call (813) 393-8359.",
     heroImage: "/images/bulldozer-pond-grading.jpg",
@@ -67,7 +67,7 @@ export const cities: CityData[] = [
     heroHeadline: "Winter Haven's Trusted Land Clearing Pros",
     heroSubtext:
       "Serving homeowners, ranchers, and developers across Winter Haven and the Chain of Lakes region. Land clearing, mulching, grading, and site prep — done right, done fast.",
-    metaTitle: "Land Clearing & Site Prep in Winter Haven, FL",
+    metaTitle: "Land Clearing & Forestry Mulching in Winter Haven, FL",
     metaDescription:
       "Land clearing, forestry mulching, site prep & grading in Winter Haven, FL. Serving Polk County homeowners & developers. Free estimates — call (813) 393-8359.",
     heroImage: "/images/excavator-pond-job.jpg",
@@ -112,7 +112,7 @@ export const cities: CityData[] = [
     heroHeadline: "Davenport's Trusted Land Clearing Pros",
     heroSubtext:
       "Keeping up with Davenport's explosive growth — land clearing, forestry mulching, site prep, and grading for new developments along the I-4 corridor. Fully insured. Free estimates.",
-    metaTitle: "Land Clearing & Site Prep in Davenport, FL",
+    metaTitle: "Land Clearing & Forestry Mulching in Davenport, FL",
     metaDescription:
       "Land clearing, forestry mulching, site prep & grading in Davenport, FL. Serving the I-4 corridor near Osceola County. Free estimates — call (813) 393-8359.",
     heroImage: "/images/hero.jpg",
@@ -123,7 +123,7 @@ export const cities: CityData[] = [
     county: "Hillsborough County",
     description:
       "Tampa is the economic hub of the region with a massive market for land clearing and site preparation services. We serve commercial and residential projects across the Tampa metro area.",
-    nearby: ["brandon", "plant-city", "riverview"],
+    nearby: ["lutz", "plant-city", "riverview"],
     heroHeadline: "Tampa's Trusted Land Clearing Pros",
     heroSubtext:
       "Commercial and residential land clearing, forestry mulching, site prep, and grading across the Tampa metro area. Local crew, competitive pricing, no job too big or too small.",
@@ -133,18 +133,18 @@ export const cities: CityData[] = [
     heroImage: "/images/bulldozer-pond-grading.jpg",
   },
   {
-    slug: "brandon",
-    name: "Brandon",
+    slug: "lutz",
+    name: "Lutz",
     county: "Hillsborough County",
     description:
-      "Brandon is a large suburban community east of Tampa with ongoing residential and commercial development. We provide land clearing, grading, and site prep services for property owners throughout the Brandon area.",
-    nearby: ["tampa", "riverview", "plant-city"],
-    heroHeadline: "Brandon's Trusted Land Clearing Pros",
+      "Lutz is home to large-acreage properties, ranches, horse farms, and custom home developments in northern Hillsborough County. We provide land clearing, forestry mulching, site prep, and grading for property owners throughout the Lutz area.",
+    nearby: ["tampa", "plant-city", "riverview"],
+    heroHeadline: "Lutz's Trusted Land Clearing Pros",
     heroSubtext:
-      "Land clearing, forestry mulching, site prep, and grading for Brandon's residential and commercial properties. Family-owned, fully insured, and serving eastern Hillsborough County.",
-    metaTitle: "Land Clearing & Site Prep in Brandon, FL",
+      "Land clearing, forestry mulching, site prep, and grading for Lutz's ranches, farms, and custom home properties. Family-owned, fully insured, and serving northern Hillsborough County.",
+    metaTitle: "Land Clearing & Forestry Mulching in Lutz, FL",
     metaDescription:
-      "Land clearing, forestry mulching, site prep & grading in Brandon, FL. Serving eastern Hillsborough County. Free estimates — call (813) 393-8359.",
+      "Land clearing, forestry mulching, site prep & grading in Lutz, FL. Serving northern Hillsborough County. Free estimates — call (813) 393-8359.",
     heroImage: "/images/land-clearing-hero.jpg",
   },
   {
@@ -153,7 +153,7 @@ export const cities: CityData[] = [
     county: "Hillsborough County",
     description:
       "Riverview is one of the fastest-growing communities in Hillsborough County, with new neighborhoods and commercial centers being built regularly. We handle land clearing and site preparation for the area's ongoing development.",
-    nearby: ["brandon", "tampa", "plant-city"],
+    nearby: ["lutz", "tampa", "plant-city"],
     heroHeadline: "Riverview's Trusted Land Clearing Pros",
     heroSubtext:
       "Supporting Riverview's rapid growth with professional land clearing, forestry mulching, site prep, and precision grading. From new neighborhoods to commercial sites — we handle it.",

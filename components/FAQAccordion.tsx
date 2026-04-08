@@ -1,3 +1,5 @@
+import Link from "next/link";
+import type { ReactNode } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -8,6 +10,7 @@ import {
 interface FAQItem {
   question: string;
   answer: string;
+  answerJsx?: ReactNode;
 }
 
 interface FAQCategory {
@@ -15,19 +18,20 @@ interface FAQCategory {
   items: FAQItem[];
 }
 
-const faqData: FAQCategory[] = [
+export const faqData: FAQCategory[] = [
   {
     title: "Services & Areas",
     items: [
       {
         question: "What areas do you serve?",
         answer:
-          "We're based in Durant, Florida and proudly serve all of Central Florida, including Plant City, Lakeland, Bartow, Tampa, Brandon, Winter Haven, and surrounding areas in Polk and Hillsborough counties.",
+          "We're based in Plant City, Florida and proudly serve all of Central Florida, including Lakeland, Bartow, Tampa, Lutz, Winter Haven, and surrounding areas in Polk and Hillsborough counties.",
       },
       {
         question: "What services do you offer?",
         answer:
           "We specialize in land clearing, forestry mulching, site preparation, precision land grading, and horse arena construction for residential, agricultural, and commercial properties.",
+        answerJsx: <>We specialize in <Link href="/land-clearing" className="text-primary hover:underline">land clearing</Link>, <Link href="/forestry-mulching" className="text-primary hover:underline">forestry mulching</Link>, <Link href="/site-prep" className="text-primary hover:underline">site preparation</Link>, <Link href="/precision-land-grading" className="text-primary hover:underline">precision land grading</Link>, and <Link href="/horse-arena-construction" className="text-primary hover:underline">horse arena construction</Link> for residential, agricultural, and commercial properties.</>,
       },
       {
         question: "What types of properties do you work on?",
@@ -43,6 +47,7 @@ const faqData: FAQCategory[] = [
         question: "What is forestry mulching?",
         answer:
           "Forestry mulching is a one-step land clearing method that grinds trees, brush, and vegetation into mulch — leaving nutrient-rich material on the ground with minimal disturbance.",
+        answerJsx: <><Link href="/forestry-mulching" className="text-primary hover:underline">Forestry mulching</Link> is a one-step <Link href="/land-clearing" className="text-primary hover:underline">land clearing</Link> method that grinds trees, brush, and vegetation into mulch — leaving nutrient-rich material on the ground with minimal disturbance.</>,
       },
       {
         question: "Is forestry mulching better than traditional clearing?",
@@ -88,6 +93,7 @@ const faqData: FAQCategory[] = [
         question: "What is site preparation?",
         answer:
           "Site prep includes clearing, grading, leveling, and shaping land for construction, driveways, pads, or drainage. It's the foundation work that makes everything else possible.",
+        answerJsx: <><Link href="/site-prep" className="text-primary hover:underline">Site prep</Link> includes <Link href="/land-clearing" className="text-primary hover:underline">clearing</Link>, <Link href="/precision-land-grading" className="text-primary hover:underline">grading</Link>, leveling, and shaping land for construction, driveways, pads, or drainage. It&apos;s the foundation work that makes everything else possible.</>,
       },
       {
         question: "What is precision land grading?",
@@ -108,6 +114,7 @@ const faqData: FAQCategory[] = [
         question: "Do you build horse arenas?",
         answer:
           "Yes. We specialize in custom horse arena construction, including base preparation, grading, drainage, and arena layout.",
+        answerJsx: <>Yes. We specialize in custom <Link href="/horse-arena-construction" className="text-primary hover:underline">horse arena construction</Link>, including base preparation, grading, drainage, and arena layout.</>,
       },
       {
         question: "Can you customize an arena for my discipline?",
@@ -143,6 +150,7 @@ const faqData: FAQCategory[] = [
         question: "How do I get started?",
         answer:
           "Just give us a call at (813) 393-8359 or fill out our contact form. We'll schedule a visit to your property, discuss your goals, and provide a free estimate.",
+        answerJsx: <>Just give us a call at <a href="tel:+18133938359" className="text-primary hover:underline">(813) 393-8359</a> or fill out our <Link href="/contact-us" className="text-primary hover:underline">contact form</Link>. We&apos;ll schedule a visit to your property, discuss your goals, and provide a free estimate.</>,
       },
     ],
   },
@@ -164,7 +172,7 @@ export default function FAQAccordion() {
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-sm text-muted-foreground leading-relaxed">
-                  {item.answer}
+                  {item.answerJsx ?? item.answer}
                 </AccordionContent>
               </AccordionItem>
             ))}
