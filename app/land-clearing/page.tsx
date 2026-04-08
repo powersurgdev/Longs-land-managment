@@ -13,11 +13,9 @@ export const metadata: Metadata = {
     description:
       "Professional land clearing in Plant City, Lakeland, Bartow & Central FL. Lot clearing, bush hogging & underbrush removal. Free estimates — (813) 393-8359.",
     url: "/land-clearing",
-    images: [{ url: "/og-images/land-clearing.png", width: 1200, height: 630 }],
   },
   twitter: {
-    card: "summary_large_image",
-    images: ["/og-images/land-clearing.png"],
+    card: "summary",
   },
 };
 

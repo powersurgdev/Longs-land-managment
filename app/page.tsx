@@ -16,11 +16,9 @@ export const metadata: Metadata = {
     description:
       "Family-owned land clearing, forestry mulching, site prep, grading & horse arena construction serving Polk & Hillsborough counties. Free estimates.",
     url: "/",
-    images: [{ url: "/og-images/home.png", width: 1200, height: 630, alt: "Long's Land Management equipment fleet" }],
   },
   twitter: {
-    card: "summary_large_image",
-    images: ["/og-images/home.png"],
+    card: "summary",
   },
 };
 

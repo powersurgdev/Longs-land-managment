@@ -13,11 +13,9 @@ export const metadata: Metadata = {
     description:
       "Answers to common questions about land clearing, forestry mulching, site prep, grading, and horse arena construction in Central Florida.",
     url: "/faq",
-    images: [{ url: "/og-images/faq.png", width: 1200, height: 630 }],
   },
   twitter: {
-    card: "summary_large_image",
-    images: ["/og-images/faq.png"],
+    card: "summary",
   },
 };
 

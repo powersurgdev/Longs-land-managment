@@ -13,13 +13,9 @@ export const metadata: Metadata = {
     description:
       "Custom horse arena construction in Plant City, Lakeland & Central FL. Base prep, grading, drainage & fencing. Free estimates — (813) 393-8359.",
     url: "/horse-arena-construction",
-    images: [
-      { url: "/og-images/horse-arena-construction.png", width: 1200, height: 630 },
-    ],
   },
   twitter: {
-    card: "summary_large_image",
-    images: ["/og-images/horse-arena-construction.png"],
+    card: "summary",
   },
 };
 

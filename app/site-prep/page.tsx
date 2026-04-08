@@ -13,11 +13,9 @@ export const metadata: Metadata = {
     description:
       "Site preparation in Plant City, Lakeland, Bartow & Central FL. Dirt work, gravel driveways, excavation & drainage. Free estimates — (813) 393-8359.",
     url: "/site-prep",
-    images: [{ url: "/og-images/site-prep.png", width: 1200, height: 630 }],
   },
   twitter: {
-    card: "summary_large_image",
-    images: ["/og-images/site-prep.png"],
+    card: "summary",
   },
 };
 

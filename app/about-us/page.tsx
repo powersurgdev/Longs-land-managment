@@ -13,11 +13,9 @@ export const metadata: Metadata = {
     description:
       "Founded by Konnore Long and based in Plant City, FL. Family-owned land management serving Polk & Hillsborough counties.",
     url: "/about-us",
-    images: [{ url: "/og-images/about-us.png", width: 1200, height: 630 }],
   },
   twitter: {
-    card: "summary_large_image",
-    images: ["/og-images/about-us.png"],
+    card: "summary",
   },
 };
 

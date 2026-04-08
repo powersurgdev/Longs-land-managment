@@ -13,11 +13,9 @@ export const metadata: Metadata = {
     description:
       "Forestry mulching in Plant City, Lakeland, Bartow & Central FL. One-step clearing — no hauling, no burning. Free estimates — (813) 393-8359.",
     url: "/forestry-mulching",
-    images: [{ url: "/og-images/forestry-mulching.png", width: 1200, height: 630 }],
   },
   twitter: {
-    card: "summary_large_image",
-    images: ["/og-images/forestry-mulching.png"],
+    card: "summary",
   },
 };
 

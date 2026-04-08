@@ -12,11 +12,9 @@ export const metadata: Metadata = {
     description:
       "Based in Plant City, FL. Land clearing, forestry mulching, site prep, and grading across Polk & Hillsborough counties.",
     url: "/service-areas",
-    images: [{ url: "/og-images/service-areas.png", width: 1200, height: 630 }],
   },
   twitter: {
-    card: "summary_large_image",
-    images: ["/og-images/service-areas.png"],
+    card: "summary",
   },
 };
 

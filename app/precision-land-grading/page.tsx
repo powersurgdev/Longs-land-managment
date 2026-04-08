@@ -13,13 +13,9 @@ export const metadata: Metadata = {
     description:
       "Precision land grading in Plant City, Lakeland, Bartow & Central FL. Laser-guided grading, drainage & foundation work. Free estimates — (813) 393-8359.",
     url: "/precision-land-grading",
-    images: [
-      { url: "/og-images/precision-land-grading.png", width: 1200, height: 630 },
-    ],
   },
   twitter: {
-    card: "summary_large_image",
-    images: ["/og-images/precision-land-grading.png"],
+    card: "summary",
   },
 };
 

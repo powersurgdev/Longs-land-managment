@@ -14,11 +14,9 @@ export const metadata: Metadata = {
     description:
       "Request a free estimate for land clearing, forestry mulching, site prep, or grading in Central Florida. Call (813) 393-8359.",
     url: "/contact-us",
-    images: [{ url: "/og-images/contact-us.png", width: 1200, height: 630 }],
   },
   twitter: {
-    card: "summary_large_image",
-    images: ["/og-images/contact-us.png"],
+    card: "summary",
   },
 };
 

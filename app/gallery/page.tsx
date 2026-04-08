@@ -13,11 +13,9 @@ export const metadata: Metadata = {
     description:
       "Photos of our land clearing, forestry mulching, site prep, grading, and horse arena work across Central Florida.",
     url: "/gallery",
-    images: [{ url: "/og-images/gallery.png", width: 1200, height: 630 }],
   },
   twitter: {
-    card: "summary_large_image",
-    images: ["/og-images/gallery.png"],
+    card: "summary",
   },
 };
 
