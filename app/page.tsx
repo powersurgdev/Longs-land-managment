@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "Professional land clearing, forestry mulching & site prep in Plant City, Lakeland & Central FL. Family-owned, fully insured. Free estimates — (813) 393-8359.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Long's Land Management — Trusted Land Clearing Pros in Central Florida",
+    title: "Long's Land Management | Plant City, Lakeland & Bartow, FL | Land Clearing Pros",
     description:
       "Family-owned land clearing, forestry mulching, site prep, grading & horse arena construction serving Polk & Hillsborough counties. Free estimates.",
     url: "/",
