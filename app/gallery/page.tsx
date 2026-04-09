@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import GalleryGrid from "@/components/GalleryGrid";
-import ContactCTA from "@/components/ContactCTA";
+import ContactFormCTA from "@/components/ContactFormCTA";
 
 export const metadata: Metadata = {
   title: "Project Gallery — Land Clearing & Site Work Photos",
@@ -115,10 +115,7 @@ export default function GalleryPage() {
           </div>
         </section>
 
-        <ContactCTA
-          headline="Like What You See?"
-          description="Let's talk about your project. We offer free estimates throughout Central Florida."
-        />
+        <ContactFormCTA />
       </div>
     </>
   );

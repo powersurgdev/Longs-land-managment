@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { Users, ShieldCheck, DollarSign, MapPin, Wrench, Clock } from "lucide-react";
-import ContactCTA from "@/components/ContactCTA";
+import ContactFormCTA from "@/components/ContactFormCTA";
 
 export const metadata: Metadata = {
   title: "About Long's Land Management — Family-Owned in Central Florida",
@@ -202,10 +202,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <ContactCTA
-        headline="Let's Talk About Your Project"
-        description="Give us a call or request a free estimate. We're happy to visit your property and discuss what you need."
-      />
+      <ContactFormCTA />
     </div>
     </>
   );

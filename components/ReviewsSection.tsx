@@ -141,7 +141,7 @@ export default function ReviewsSection({ variant = "a" }: ReviewsSectionProps) {
               />
             }
             variant="outline"
-            className="font-semibold w-full sm:w-auto"
+            className="font-semibold hidden sm:inline-flex"
           >
             Read All 100+ Reviews
             <ArrowRight className="h-4 w-4 ml-2" />

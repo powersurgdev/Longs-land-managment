@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import FAQAccordion from "@/components/FAQAccordion";
 import { faqData } from "@/components/FAQAccordion";
-import ContactCTA from "@/components/ContactCTA";
+import ContactFormCTA from "@/components/ContactFormCTA";
 
 export const metadata: Metadata = {
   title: "FAQ — Land Clearing & Site Prep Questions Answered",
@@ -91,10 +91,7 @@ export default function FAQPage() {
           </div>
         </section>
 
-        <ContactCTA
-          headline="Still Have Questions?"
-          description="We're happy to help. Give us a call or send us a message and we'll get back to you."
-        />
+        <ContactFormCTA />
       </div>
     </>
   );

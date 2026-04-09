@@ -18,9 +18,9 @@ const services = [
     description:
       "One-step land clearing that grinds vegetation into nutrient-rich mulch — no hauling, no burning.",
     href: "/forestry-mulching",
-    image: "/images/clearing-pine-forest.jpg",
-    imagePosition: "center 50%",
-    alt: "Excavator and mulching equipment clearing a pine forest in Central Florida",
+    image: "/images/IMG_0184.jpg",
+    imagePosition: "center 40%",
+    alt: "John Deere skid steer with forestry mulching head on a cleared Central Florida job site",
   },
   {
     title: "Site Prep",
@@ -60,7 +60,7 @@ function ServiceCard({
 }) {
   return (
     <Link href={service.href} className={`group ${className || ""}`}>
-      <Card className="h-full overflow-hidden transition-all duration-200 hover:shadow-lg hover:-translate-y-1 border-border/50">
+      <Card className="h-full overflow-hidden transition-all duration-200 hover:shadow-lg hover:-translate-y-1 border-border/50 pt-0 gap-0">
         <div className="relative aspect-[16/10] overflow-hidden">
           <Image
             src={service.image}
