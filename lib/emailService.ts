@@ -115,7 +115,7 @@ Services: ${data.services.join(", ")}
 Message: ${data.message}`;
 
   await sgMail.send({
-    to: process.env.NOTIFICATION_EMAIL!,
+    to: process.env.NOTIFICATION_EMAIL!.split(",").map((e) => e.trim()),
     from: process.env.SENDGRID_FROM_EMAIL!,
     subject: `New Contact: ${data.name} — ${data.services[0]}`,
     html,
